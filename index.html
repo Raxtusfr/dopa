@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOPA</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000; /* Black background */
+            color: #FFD700; /* Gold color */
+            font-family: 'Raleway', sans-serif; /* Stylish font */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            user-select: none;
+        }
+
+        .header {
+            margin-bottom: 50px;
+        }
+
+        .header h1 {
+            font-size: 4.5em; /* Larger text */
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7); /* Gold shadow */
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .quote {
+            font-size: 1.8em; /* Quote size */
+            color: #FFD700;
+            margin-top: 20px;
+            margin-bottom: 30px;
+            border: 2px solid #FFD700; /* Gold border */
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(20, 20, 20, 0.85); /* Semi-transparent black background */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .quote:hover {
+            transform: scale(1.05); /* Slight grow effect */
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); /* Gold glow */
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #000; /* Black background for buttons */
+            color: #FFD700; /* Gold text */
+            border: 2px solid #FFD700; /* Gold border */
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            background-color: #FFD700; /* Gold background on hover */
+            color: #000; /* Black text on hover */
+            transform: scale(1.05); /* Slight grow effect */
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7); /* Glow on hover */
+        }
+
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 16px; /* Space between icons */
+            max-width: 900px; /* Limit width */
+            margin: 30px 0;
+        }
+
+        .icon-box {
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative; /* For positioning shadow */
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px); /* Lift effect */
+            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5); /* Gold shadow on hover */
+        }
+
+        .icon {
+            width: 64px; /* Smaller icon size */
+            height: 64px; /* Square icon */
+        }
+
+        .icon-label {
+            margin-top: 8px;
+            font-weight: 500;
+            color: #FFD700; /* Gold text */
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Subtle shadow */
+        }
+
+        .announcement {
+            color: #FFD700; /* Gold color */
+            font-size: 1.5em;
+            margin-top: 20px;
+            border: 1px solid #FFD700; /* Gold border */
+            padding: 10px;
+            border-radius: 10px;
+            animation: pulse 2s infinite alternate; /* Pulsing effect */
+        }
+
+        @keyframes pulse {
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>DOPA</h1>
+    </div>
+
+    <div class="quote" id="quoteDisplay" aria-live="polite">Welcome to DOPA, your gateway to luxury!</div>
+
+    <div class="icons-container">
+        <div class="icon-box" onclick="window.location.href='/games'" aria-label="Go to Games">
+            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
+            <div class="icon-label">Games</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='apps.html'" aria-label="Go to Apps">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFD700/apple-app-store--v2.png" alt="Apps">
+            <div class="icon-label">Apps</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='https://unblocked.my.canva.site/'" aria-label="Go to Exploits">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits">
+            <div class="icon-label">Exploits</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='movies.html'" aria-label="Go to Movies">
+            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Movies">
+            <div class="icon-label">Movies</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='settings.html'" aria-label="Go to Settings">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFD700/settings.png" alt="Settings">
+            <div class="icon-label">Settings</div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="button" onclick="window.location.href='/credits.html'" aria-label="See Credits">Credits</button>
+        <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
+    </div>
+
+    <p class="announcement">Join the golden experience at DOPA!</p>
+
+    <script>
+        const quotes = [
+            "Discover Excellence in Every Click!",
+            "Embrace the Luxuries of DOPA!",
+            "Where Every Moment Shines!",
+            "Unleash Your Creative Spirit!",
+            "Experience Gold Like Never Before!",
+            "Welcome Aboard the Luxury Train!",
+            "Elevate Your Everyday Life!"
+        ];
+
+        let quoteIndex = 0;
+        let currentQuote = '';
+        let letterIndex = 0;
+        const quoteDisplay = document.getElementById('quoteDisplay');
+
+        function typeQuote() {
+            if (letterIndex < quotes[quoteIndex].length) {
+                currentQuote += quotes[quoteIndex].charAt(letterIndex);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex++;
+                setTimeout(typeQuote, 100);
+            } else {
+                setTimeout(backspaceQuote, 1500);
+            }
+        }
+
+        function backspaceQuote() {
+            if (letterIndex > 0) {
+                currentQuote = currentQuote.slice(0, -1);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex--;
+                setTimeout(backspaceQuote, 50);
+            } else {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                setTimeout(typeQuote, 700);
+            }
+        }
+
+        // Start the quote animation
+        typeQuote();
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const button = document.getElementById('themeToggle');
+            if (document.body.classList.contains('dark-theme')) {
+                button.textContent = 'Switch to Light Mode';
+            } else {
+                button.textContent = 'Switch to Dark Mode';
+            }
+        }
+    </script>
+</body>
+</html>
