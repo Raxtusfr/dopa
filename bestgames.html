@@ -51,14 +51,23 @@
         .error { color: red; }
         .neutral { color: white; }
         .info { color: cyan; }
+
+        #image {
+            display: none;
+            margin-top: 20px;
+            max-width: 80%;
+            border: 5px solid lime;
+        }
     </style>
 </head>
 <body>
     <div id="header">April fools! Bruh, how you get April fooled so easily, anyways, I'm taking all your information now :D</div>
     <div id="console"></div>
+    <img id="image" src="horse.jpg" alt="Horse" />
 
     <script>
         const consoleElement = document.getElementById("console");
+        const imageElement = document.getElementById("image");
 
         // Function to append text to the console with a typewriter effect
         function printToConsole(text, colorClass, delay) {
@@ -76,6 +85,7 @@
 
         const fakeHackingSequence = [
             {text: "Gathering information from viewer...", color: "neutral"},
+            {text: "Cameras on Ethan...", color: "info"},
             {text: "Accessing system files...", color: "info"},
             {text: "Analyzing user data...", color: "info"},
             {text: "Bypassing firewall security...", color: "warning"},
@@ -105,11 +115,13 @@
                 setTimeout(runFakeHack, 3000); // Delay for readability between messages
             } else {
                 consoleElement.innerHTML += "\n\nPrank complete! Relax, it's just a joke! 😄";
+                imageElement.style.display = 'block'; // Show the horse image at the end
             }
         }
 
         // Start the fake hack sequence when the page loads
         window.onload = runFakeHack;
+
     </script>
 </body>
 </html>
