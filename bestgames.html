@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacking Console</title>
+    <title>Fake Hacking Console</title>
     <style>
         body {
             background-color: black;
             color: lime;
             font-family: 'Courier New', Courier, monospace;
-            overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
+            overflow: hidden;
         }
 
         #header {
@@ -23,27 +23,19 @@
             font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
-            animation: fadeIn 1s;
         }
 
         #console {
             width: 80%;
             max-width: 800px;
-            height: 400px;
+            height: 400px; /* Fixed height for the console */
             border: 2px solid lime;
             padding: 15px;
-            overflow-y: auto;
-            white-space: pre;
+            overflow-y: auto; /* Enables automatic scrolling */
+            white-space: pre; /* Ensures that white space is preserved */
             font-size: 18px;
             box-shadow: 0 0 20px lime;
             background-color: black;
-            animation: flicker 1s infinite;
-        }
-
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
         }
 
         .success { color: lime; }
@@ -75,8 +67,10 @@
             const textLength = text.length;
 
             const intervalId = setInterval(() => {
-                consoleElement.innerHTML += text[currentLength++];
+                consoleElement.innerHTML += `<span class="${colorClass}">${text[currentLength]}</span>`;
                 consoleElement.scrollTop = consoleElement.scrollHeight; // Auto scroll to the bottom
+                currentLength++;
+
                 if (currentLength === textLength) {
                     clearInterval(intervalId);
                 }
@@ -110,11 +104,11 @@
         function runFakeHack() {
             if (i < fakeHackingSequence.length) {
                 const { text, color } = fakeHackingSequence[i];
-                setTimeout(() => printToConsole(text, color, 100), 2000); // Add a delay before printing each line
+                setTimeout(() => printToConsole(text, color, 50), 2000); // Add a delay before printing each line
                 i++;
                 setTimeout(runFakeHack, 3000); // Delay for readability between messages
             } else {
-                consoleElement.innerHTML += "\n\nPrank complete! Relax, it's just a joke! 😄";
+                consoleElement.innerHTML += "your a fucking loser.";
                 imageElement.style.display = 'block'; // Show the horse image at the end
             }
         }
