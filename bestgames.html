@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Hacking Console</title>
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #header {
+            color: cyan;
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #console {
+            width: 80%;
+            max-width: 800px;
+            height: 400px; /* Fixed height for the console */
+            border: 2px solid lime;
+            padding: 15px;
+            overflow-y: auto; /* Enables automatic scrolling */
+            white-space: pre; /* Ensures that white space is preserved */
+            font-size: 18px;
+            box-shadow: 0 0 20px lime;
+            background-color: black;
+        }
+
+        .success { color: lime; }
+        .warning { color: orange; }
+        .error { color: red; }
+        .neutral { color: white; }
+        .info { color: cyan; }
+
+        #image {
+            display: none;
+            margin-top: 20px;
+            max-width: 80%;
+            border: 5px solid lime;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">April fools! Bruh, how you get April fooled so easily, anyways, I'm taking all your information now :D</div>
+    <div id="console"></div>
+    <img id="image" src="horse.jpg" alt="Horse" />
+
+    <script>
+        const consoleElement = document.getElementById("console");
+        const imageElement = document.getElementById("image");
+
+        // Function to append text to the console with a typewriter effect
+        function printToConsole(text, colorClass, delay) {
+            let currentLength = 0;
+            const textLength = text.length;
+
+            const intervalId = setInterval(() => {
+                consoleElement.innerHTML += `<span class="${colorClass}">${text[currentLength]}</span>`;
+                consoleElement.scrollTop = consoleElement.scrollHeight; // Auto scroll to the bottom
+                currentLength++;
+
+                if (currentLength === textLength) {
+                    clearInterval(intervalId);
+                }
+            }, delay);
+        }
+
+        const fakeHackingSequence = [
+            {text: "Gathering information from viewer...", color: "neutral"},
+            {text: "Cameras on Ethan...", color: "info"},
+            {text: "Accessing system files...", color: "info"},
+            {text: "Analyzing user data...", color: "info"},
+            {text: "Bypassing firewall security...", color: "warning"},
+            {text: "Establishing connection to remote server...", color: "info"},
+            {text: "Retrieving password information...", color: "warning"},
+            {text: "Users password information sent to hunterstabley@student.hcps.org", color: "error"},
+            {text: "Gathering Information...", color: "neutral"},
+            {text: "Extracting data...", color: "info"},
+            {text: "Full name, address, date of birth, etc has been sent to hunterstabley@student.hcps.org", color: "error"},
+            {text: "Including sensitive information...", color: "neutral"},
+            {text: "Social Security Number and other personal data have been stolen.", color: "error"},
+            {text: "Current Address, Date of Birth, Phone Number, Account Information, etc. has been collected.", color: "success"},
+            {text: "Other sensitive data has been collected.", color: "warning"},
+            {text: "Terminating connection...", color: "info"},
+            {text: "Reinitializing system...", color: "info"},
+            {text: "Finalizing operations...", color: "info"},
+            {text: "All information has been sent successfully.", color: "error"}
+        ];
+
+        let i = 0;
+
+        function runFakeHack() {
+            if (i < fakeHackingSequence.length) {
+                const { text, color } = fakeHackingSequence[i];
+                setTimeout(() => printToConsole(text, color, 50), 2000); // Add a delay before printing each line
+                i++;
+                setTimeout(runFakeHack, 3000); // Delay for readability between messages
+            } else {
+                consoleElement.innerHTML += "your a fucking loser.";
+                imageElement.style.display = 'block'; // Show the horse image at the end
+            }
+        }
+
+        // Start the fake hack sequence when the page loads
+        window.onload = runFakeHack;
+
+    </script>
+</body>
+</html>
