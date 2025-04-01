@@ -59,15 +59,15 @@
 
     <script>
         const consoleElement = document.getElementById("console");
-        
-        // Function to append text to the console with typewriter effect
+
+        // Function to append text to the console with a typewriter effect
         function printToConsole(text, colorClass, delay) {
-            const textLength = text.length;
             let currentLength = 0;
-            
+            const textLength = text.length;
+
             const intervalId = setInterval(() => {
                 consoleElement.innerHTML += text[currentLength++];
-                consoleElement.scrollTop = consoleElement.scrollHeight; // Auto scroll
+                consoleElement.scrollTop = consoleElement.scrollHeight; // Auto scroll to the bottom
                 if (currentLength === textLength) {
                     clearInterval(intervalId);
                 }
@@ -100,9 +100,9 @@
         function runFakeHack() {
             if (i < fakeHackingSequence.length) {
                 const { text, color } = fakeHackingSequence[i];
-                printToConsole(text, color, 100); // quicker typewriter effect
+                setTimeout(() => printToConsole(text, color, 100), 2000); // Add a delay before printing each line
                 i++;
-                setTimeout(runFakeHack, 3000); // delay for readability between messages
+                setTimeout(runFakeHack, 3000); // Delay for readability between messages
             } else {
                 consoleElement.innerHTML += "\n\nPrank complete! Relax, it's just a joke! 😄";
             }
@@ -110,7 +110,6 @@
 
         // Start the fake hack sequence when the page loads
         window.onload = runFakeHack;
-
     </script>
 </body>
 </html>
