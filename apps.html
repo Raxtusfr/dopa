@@ -1,6 +1,248 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>we are still workig on this... still. BROOOOOOOOO i have been really busy serving you minors with games and i just gave you like 30 quadrillion games. With Apps, its mostly just gonna be misc stuff. So there you go. Like, y'know, silk, tweetgen, soundboards, stuff like that. Just random stuff for apps. So that's what apps is gonna be soon. Just give me time chat. -bronomion</h1>
-  </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>DOPA - Apps</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000; /* Black background */
+            color: #FFD700; /* Gold color */
+            user-select: none;
+            overflow-y: auto;
+            animation: fadeIn 0.5s forwards;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh; /* Ensure full height */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        header {
+            width: 100%;
+            padding: 15px 30px;
+            background: rgba(20, 20, 20, 0.9); /* Dark background */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5); /* Gold shadow */
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.5rem; /* Header font */
+        }
+
+        .search-container {
+            flex-grow: 1;
+            max-width: 400px;
+            margin-right: 15px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #FFD700; /* Gold border */
+            background-color: #222; /* Dark background */
+            color: #FFD700; /* Gold text */
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background-color: #000; /* Black background */
+            color: #FFD700; /* Gold text */
+            border: 2px solid #FFD700; /* Gold border */
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 2px 5px rgba(255, 215, 0, 0.5); /* Gold shadow */
+            animation: buttonAnimation 0.3s ease;
+        }
+
+        @keyframes buttonAnimation {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .btn:hover {
+            background-color: #FFD700; /* Gold background on hover */
+            color: black; /* Black text on hover */
+            transform: scale(1.05);
+        }
+
+        .main-content {
+            width: 90%;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1); /* Slightly tinted background for content */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5); /* Gold shadow */
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .section {
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            color: #FFD700; /* Gold title */
+            border-bottom: 2px solid #FFD700; /* Gold underline */
+            padding-bottom: 5px;
+            font-size: 2rem;
+        }
+
+        .games-container {
+            display: grid; /* Changed to grid */
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px; /* Space between game cards */
+        }
+
+        .game {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(255, 215, 0, 0.5); /* Gold shadow */
+        }
+
+        .game img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+            height: 100px; /* Fixed height */
+            object-fit: cover;
+        }
+
+        .game:hover {
+            transform: scale(1.05);
+        }
+
+        .game-title {
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1); /* Slight background for the title */
+            color: #FFD700; /* Gold text */
+            border-radius: 0 0 10px 10px;
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            background-color: rgba(20, 20, 20, 0.9); /* Dark footer */
+            text-align: center;
+            color: #FFD700; /* Gold text */
+            border-top: 1px solid #FFD700; /* Gold border */
+        }
+
+        .no-data {
+            color: #555; /* Grey for no data message */
+            font-style: italic;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>DOPA</h1>
+        <div class="search-container">
+            <input type="text" id="search" oninput="filterGames()" placeholder="Search for games...">
+        </div>
+        <button class="btn" onclick="window.location.href='/'">Home</button>
+    </header>
+
+    <div class="main-content">
+        <div class="tagline">“fun apps to play around with”</div>
+
+        <!-- Most Popular Section -->
+        <div class="section" id="most-popular">
+            <h2>apps</h2>
+            <div class="games-container">
+                <div class="game" onclick="playGame('http://weavesilk.com/')">
+                    <img src="silk.png" alt="Silk">
+                    <div class="game-title">Silk</div>
+                </div>
+                <div class="game" onclick="playGame('https://www.tweetgen.com/create/tweet.html')">
+                    <img src="tweetgen.png" alt="tweetgen">
+                    <div class="game-title">Tweet Generator</div>
+                </div>
+                <div class="game" onclick="playGame('https://quickdraw.withgoogle.com/')">
+                    <img src="sandboxicon.png" alt="quickdraw">
+                    <div class="game-title">Quick Draw</div>
+                </div>
+                <div class="game" onclick="playGame('https://santatracker.google.com/')">
+                    <img src="santa.png" alt="santatracker">
+                    <div class="game-title">Santa Tracker</div>
+                </div>
+            </div>
+        </div>
+    <footer>
+        <div class="credits">© 2025 DOPA. All Rights Reserved.</div>
+        <div class="social-icons">
+            <button class="btn"
+                style="background: none; border: none; color: #FFD700; cursor: pointer; font-size: 1.5rem;"
+                onclick="window.open('https://www.youtube.com/')">🔴 YouTube</button>
+        </div>
+    </footer>
+
+    <script>
+        // Function to filter games based on search input
+        function filterGames() {
+            const searchInput = document.getElementById('search').value.toLowerCase();
+            const gamesContainer = document.querySelectorAll('.game');
+            gamesContainer.forEach(game => {
+                const title = game.querySelector('.game-title').textContent.toLowerCase();
+                game.style.display = title.includes(searchInput) ? '' : 'none';
+            });
+        }
+
+        // Load initial games and recommendations on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            loadAllGames();
+            recommendGames();
+        });
+    </script>
+</body>
+
 </html>
