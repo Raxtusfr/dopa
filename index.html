@@ -17,7 +17,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 100vh; /* Use the full viewport height */
+            width: 100vw; /* Use the full viewport width */
+            overflow: hidden; /* Prevent scrolling */
             margin: 0;
             text-align: center;
             user-select: none;
@@ -32,14 +34,14 @@
 
         /* Header Styles */
         .header {
-            margin-bottom: 50px;
+            margin-bottom: 20px; /* Reduced margin */
         }
 
         .header h1 {
-            font-size: 4.5em;
+            font-size: 3em; /* Larger font size */
             color: #FFD700;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px; /* Increased letter spacing */
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
             animation: fadeIn 1s ease-in forwards;
         }
@@ -56,20 +58,22 @@
 
         /* Quote Styles */
         .quote {
-            font-size: 1.8em;
+            font-size: 2em; /* Larger font size */
             color: #FFD700;
-            margin-top: 20px;
-            margin-bottom: 30px;
+            margin: 10px 0; /* Reduced margin */
             border: 2px solid #FFD700;
-            padding: 20px;
+            padding: 20px; /* Increased padding */
             border-radius: 10px;
             background: rgba(20, 20, 20, 0.85);
             transition: transform 0.3s, box-shadow 0.3s;
-        }
 
-        .quote:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            display: flex; /* Use flexbox for centering */
+            align-items: center; /* Center vertical alignment */
+            justify-content: center; /* Center horizontal alignment */
+
+            /* Set a fixed height */
+            height: 60px; /* Adjust this height according to your desired design */
+            overflow: hidden; /* Hide any overflowing text */
         }
 
         /* Button Styles */
@@ -77,7 +81,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 15px; /* Slightly increased margin */
         }
 
         .button {
@@ -85,12 +89,13 @@
             color: #FFD700;
             border: 2px solid #FFD700;
             border-radius: 25px;
-            padding: 12px 30px;
-            font-size: 1.3em;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1.5em; /* Larger font size */
             font-weight: bold;
-            margin: 10px;
+            margin: 10px; /* Increased margin */
             cursor: pointer;
             transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            min-width: 150px; /* Set minimum width */
         }
 
         .button:hover {
@@ -103,16 +108,16 @@
         /* Icon Styles */
         .icons-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
+            gap: 20px; /* Increased space between icons */
             max-width: 900px;
             margin: 30px 0;
         }
 
         .icon-box {
             background-color: rgba(20, 20, 20, 0.9);
-            padding: 15px;
-            border-radius: 15px;
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Slightly smaller border radius */
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
@@ -124,24 +129,25 @@
         }
 
         .icon {
-            width: 64px;
-            height: 64px;
+            width: 64px; /* Increased icon size */
+            height: 64px; /* Increased icon size */
         }
 
         .icon-label {
-            margin-top: 8px;
+            margin-top: 10px; /* Adjusted margin */
             font-weight: 500;
             color: #FFD700;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            font-size: 1.2em; /* Larger font size for icon labels */
         }
 
         /* Announcement Styles */
         .announcement {
             color: #FFD700;
-            font-size: 1.5em;
-            margin-top: 20px;
+            font-size: 1.2em; /* Increased font size */
+            margin-top: 15px; /* Increased margin */
             border: 1px solid #FFD700;
-            padding: 10px;
+            padding: 10px; /* Increased padding */
             border-radius: 10px;
             animation: pulse 2s infinite alternate;
         }
@@ -170,7 +176,7 @@
             <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
             <div class="icon-label">Games</div>
         </div>
-        <div class="icon-box" onclick="window.location.href='apps.html'" aria-label="Go to Apps">
+        <div class="icon-box" onclick="window.location.href='apps'" aria-label="Go to Apps">
             <img class="icon" src="https://img.icons8.com/ios7/600/FFD700/apple-app-store--v2.png" alt="Apps">
             <div class="icon-label">Apps</div>
         </div>
@@ -178,11 +184,11 @@
             <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits">
             <div class="icon-label">Exploits</div>
         </div>
-        <div class="icon-box" onclick="window.location.href='movies.html'" aria-label="Go to Movies">
+        <div class="icon-box" onclick="window.location.href='movies'" aria-label="Go to Movies">
             <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Movies">
             <div class="icon-label">Movies</div>
         </div>
-        <div class="icon-box" onclick="window.location.href='settings.html'" aria-label="Go to Settings">
+        <div class="icon-box" onclick="window.location.href='settings'" aria-label="Go to Settings">
             <img class="icon" src="https://img.icons8.com/m_rounded/512/FFD700/settings.png" alt="Settings">
             <div class="icon-label">Settings</div>
         </div>
@@ -193,18 +199,22 @@
         <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
     </div>
 
-    <p class="announcement">Announcement: Z, say some here!!1!</p>
+    <p class="announcement">Announcement: adding tomb of the mask soon! -bronomion</p>
 
     <script>
         // Quotes Array and Current Index
         const quotes = [
-            "DOPA, origin by Z, website made by founder and owner of universal!",
+            "yeah, we are STILL working on DOPA.",
             "This site use to only be HTML until we upgraded",
             "Ton's of games!",
             "Totally very educational website...",
             "website still WIP!",
             "Gold and black theme",
-            "why aren't you working?"
+            "why aren't you working?",
+            "DOPA FOR LIFE",
+            "I KNOW WERE U LIVE RYAN",
+            "WITHERSPOON",
+            "THE MOST SIGMA SITE IN TOWN"
         ];
 
         let quoteIndex = 0;
@@ -247,5 +257,4 @@
         }
     </script>
 </body>
-
 </html>
