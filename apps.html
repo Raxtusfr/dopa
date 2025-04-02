@@ -197,26 +197,28 @@
 
         <!-- Most Popular Section -->
         <div class="section" id="most-popular">
-            <h2>apps</h2>
+            <h2>Apps</h2>
             <div class="games-container">
                 <div class="game" onclick="playGame('http://weavesilk.com/')">
                     <img src="silk.png" alt="Silk">
                     <div class="game-title">Silk</div>
                 </div>
                 <div class="game" onclick="playGame('https://www.tweetgen.com/create/tweet.html')">
-                    <img src="tweetgen.png" alt="tweetgen">
+                    <img src="tweetgen.png" alt="Tweet Generator">
                     <div class="game-title">Tweet Generator</div>
                 </div>
                 <div class="game" onclick="playGame('https://quickdraw.withgoogle.com/')">
-                    <img src="sandboxicon.png" alt="quickdraw">
+                    <img src="quickdraw.png" alt="Quick Draw">
                     <div class="game-title">Quick Draw</div>
                 </div>
                 <div class="game" onclick="playGame('https://santatracker.google.com/')">
-                    <img src="santa.png" alt="santatracker">
+                    <img src="santa.png" alt="Santa Tracker">
                     <div class="game-title">Santa Tracker</div>
                 </div>
             </div>
         </div>
+    </div>
+
     <footer>
         <div class="credits">© 2025 DOPA. All Rights Reserved.</div>
         <div class="social-icons">
@@ -235,6 +237,11 @@
                 const title = game.querySelector('.game-title').textContent.toLowerCase();
                 game.style.display = title.includes(searchInput) ? '' : 'none';
             });
+        }
+
+        // Function to handle game redirection
+        function playGame(url) {
+            window.location.href = url; // Redirect to the specified URL
         }
 
         // Load initial games and recommendations on page load
