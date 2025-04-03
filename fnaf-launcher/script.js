@@ -32,17 +32,17 @@ const options = document.querySelector('.launcher-options');
 const musicIcon = document.querySelector('.music');
 const soundIcon = document.querySelector('.sound');
 const steamlinks = [
-    'steam://run/319510',
-    'steam://run/332800',
-    'steam://run/354140',
-    'steam://run/388090',
-    "javascript:alert('Sorry! We have not added a way to launch FNAF World yet...');",
-    'steam://run/506610',
-    'steam://run/738060',
-    'steam://run/871720',
-    'steam://run/732690',
-    'steam://run/747660',
-    'steam://run/2287520'
+    '/five-nights-at-freddys-1',
+    '/five-nights-at-freddys-2',
+    '/five-nights-at-freddys-3',
+    '/five-nights-at-freddys-4',
+    '/five-nights-at-freddys-world',
+    '/five-nights-at-freddys-6',
+    '/five-nights-at-freddys-7',
+    '/five-nights-at-freddys-ucn',
+    '/five-nights-at-freddys-ps',
+    '/five-nights-at-freddys-security-breach',
+    '/five-nights-at-freddys-help-wanted'
 ]
 const htmllinks = [
     'https://irv77.github.io/hd_fnaf/1/',
