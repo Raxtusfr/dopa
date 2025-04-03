@@ -120,4 +120,21 @@ function changeGameSelected(index) {
     if (changeIndex < 0) {
         // Handle the selection change here
     }
+    
+    currentIndex = index; // Ensure the index updates
+    updateCarousel();
+
+    if (playSound === 'true') {
+        select.currentTime = 0;
+        select.play();
+    }
+
+    cardSelector.forEach(card => card.classList.remove('selected'));
+
+    cardSelector[index].classList.add('selected');
+    cardSelector.forEach(card => card.classList.remove('hover'));
+    if (hovering === true) {
+        cardSelector[currentIndex].classList.add('hover');
+    }
+    else { hovering = false; }
 }
