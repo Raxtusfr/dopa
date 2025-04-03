@@ -1,6 +1,6 @@
 let inMenu = true;
 let currentIndex = 0;
-const totalCards = 7; // Updated to reflect the removed games
+const totalCards = 7; // Updated to reflect the 7 remaining games
 let hovering = false;
 let down = true;
 let up = false;
@@ -82,7 +82,7 @@ function deactivator() {
 
 document.addEventListener('keydown', function (event) {
     if (inMenu === false && event.keyCode == 37) { if (left === true) { gameSelection('left') } if (left === false) { if (playSound === 'true') { error.currentTime = 0; error.play(); } } if (currentIndex - 1 < 0) { left = false; } right = true }
-    if (inMenu === false && event.keyCode == 39) { if (right === true) { gameSelection('right') } if (right === false) { if (playSound === 'true') { error.currentTime = 0; error.play(); } } if (currentIndex + 1 > 6) { right = false; } left = true }
+    if (inMenu === false && event.keyCode == 39) { if (right === true) { gameSelection('right') } if (right === false) { if (playSound === 'true') { error.currentTime = 0; error.play(); } } if (currentIndex + 1 >= totalCards) { right = false; } left = true }
     if (inMenu === false && event.keyCode == 40) { if (down === true) { playButtonHover(true); } if (down === false) { if (playSound === 'true') { error.currentTime = 0; error.play(); } } down = false; up = true }
     if (inMenu === false && event.keyCode == 38) { if (up === true) { playButtonHover(); } if (up === false) { if (playSound === 'true') { error.currentTime = 0; error.play(); } } up = false; down = true }
     if (event.keyCode == 13) { if (inMenu === true) { activator(); } if (inMenu === false && hovering === true) { window.open(htmllinks[currentIndex], "_self"); deactivator() } }
@@ -91,8 +91,8 @@ document.addEventListener('keydown', function (event) {
 })
 
 function gameSelection(direction) {
-    if (direction === "left" && currentIndex - 1 > -1) { changeGameSelected(currentIndex - 1); }
-    if (direction === "right" && currentIndex + 1 < 7) { changeGameSelected(currentIndex + 1); }
+    if (direction === "left" && currentIndex - 1 >= 0) { changeGameSelected(currentIndex - 1); }
+    if (direction === "right" && currentIndex + 1 < totalCards) { changeGameSelected(currentIndex + 1); }
 }
 
 function playButtonHover(cancel) {
@@ -114,14 +114,7 @@ function updateCarousel() {
 }
 
 function changeGameSelected(index) {
-    if (index > 0) { left = true; }
-    changeIndex = index - currentIndex
-
-    if (changeIndex < 0) {
-        // Handle the selection change here
-    }
-    
-    currentIndex = index; // Ensure the index updates
+    currentIndex = index;
     updateCarousel();
 
     if (playSound === 'true') {
