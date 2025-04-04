@@ -1,0 +1,116 @@
+<hh_fake_doctype> html</hh_fake_doctype>
+<hh_fake_tag_name_html lang="en">
+
+<hh_fake_tag_name_head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOPA Media</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #000;
+            color: #FFD700;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Changed to allow scrolling */
+            height: auto; /* Adjusted height */
+            width: 100vw;
+            margin: 0;
+            text-align: center;
+            user-select: none;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 20px; /* Added padding */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+        /* Header Styles */
+        .header {
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Video Styles */
+        .video-container {
+            max-width: 800px; /* Set max width for video */
+            width: 100%; /* Set to full width */
+            margin: 20px 0; /* Add margin */
+        }
+
+        video {
+            width: 100%; /* Make video responsive */
+            border: 5px solid #FFD700; /* Golden border around the video */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        /* Navigation Button Styles */
+        .buttons-container {
+            margin-top: 30px; /* Increased margin */
+            display: flex;
+            flex-direction: column; /* Stack buttons vertically */
+            align-items: center; /* Center align buttons */
+        }
+
+        .button {
+            background-color: #000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 10px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            min-width: 150px;
+        }
+
+        .button:hover {
+            background-color: #FFD700;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+        }
+    </style>
+</hh_fake_tag_name_head>
+
+<hh_fake_tag_name_body>
+    <div class="header">
+        <h1>DOPA Media</h1>
+    </div>
+
+    <div class="video-container">
+        <video controls>
+            <source src="LETSGO.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="buttons-container">
+        <button class="button" onclick="window.location.href='/'" aria-label="Go Back to Home">Home</button>
+        <button class="button" onclick="window.location.href='/games'" aria-label="Go to Games">Games</button>
+        <button class="button" onclick="window.location.href='/apps'" aria-label="Go to Apps">Apps</button>
+        <button class="button" onclick="window.location.href='/settings'" aria-label="Go to Settings">Settings</button>
+    </div>
+</hh_fake_tag_name_body>
+</hh_fake_tag_name_html>
