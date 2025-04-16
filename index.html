@@ -1,108 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flow</title>
+    <title>DOPA</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS */
+        /* General Styles */
         body {
-            background-image: linear-gradient(135deg, #6A5ACD, #00BFFF); /* Purple to Blue gradient */
+            background-color: #000;
+            color: #FFD700;
+            font-family: 'Raleway', sans-serif;
             display: flex;
-            flex-direction: column; /* Arrange title and buttons vertically */
-            align-items: center; /* Center buttons horizontally */
-            justify-content: center; /* Center buttons vertically */
-            min-height: 100vh; /* Full height of the viewport */
-            margin: 0; /* Remove default margin */
-            color: white; /* Text color for the header */
-            font-family: 'Arial', sans-serif; /* Font family for the header */
-            text-align: center; /* Center all text */
-        }
-
-        .header {
-            margin-bottom: 30px; /* Space between header and buttons */
-        }
-
-        .title {
-            font-size: 64px; /* Large font size for title */
-            font-weight: bold; /* Bold text */
-            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
-        }
-
-        .subtitle {
-            font-size: 24px; /* Smaller font size for subtitle */
-            margin-top: 10px; /* Space between title and subtitle */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for effect */
-        }
-
-        .button-64 {
+            flex-direction: column;
             align-items: center;
-            background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
-            border: 0;
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px; /* Shadow effect */
-            box-sizing: border-box; /* Include padding and border in width */
-            color: #FFFFFF; /* Text color */
-            display: flex; /* Flex container */
-            font-family: Phantomsans, sans-serif; /* Font family for buttons */
-            font-size: 20px; /* Font size for buttons */
-            justify-content: center; /* Center text inside button */
-            line-height: 1em; /* Single line height */
-            min-width: 140px; /* Minimum width */
-            margin: 10px; /* Add margin between buttons */
-            padding: 3px; /* Inner padding for the button */
-            text-decoration: none; /* No underline */
-            user-select: none; /* Prevent text selection */
-            cursor: pointer; /* Pointer cursor on hover */
+            justify-content: center;
+            height: 100vh; /* Use the full viewport height */
+            width: 100vw; /* Use the full viewport width */
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0;
+            text-align: center;
+            user-select: none;
+            transition: background-color 0.3s, color 0.3s; /* Transition for theme change */
         }
 
-        .button-64:active,
-        .button-64:hover {
-            outline: 0; /* Remove outline on focus and hover */
+        /* Dark Theme Styles */
+        .dark-theme {
+            background-color: #1a1a1a; /* Darker background for dark mode */
+            color: #e0e0e0; /* Lighter text for contrast */
         }
 
-        .button-64 span {
-            background-color: rgb(5, 6, 45); /* Background color of span */
-            padding: 16px 24px; /* Padding inside the span */
-            border-radius: 6px; /* Rounded corners for the span */
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            transition: 300ms; /* Transition effect */
+        /* Header Styles */
+        .header {
+            margin-bottom: 20px; /* Reduced margin */
         }
 
-        .button-64:hover span {
-            background: none; /* Remove background on hover */
+        .header h1 {
+            font-size: 3em; /* Larger font size */
+            color: #FFD700;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Increased letter spacing */
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: fadeIn 1s ease-in forwards;
         }
 
-        @media (min-width: 768px) {
-            .button-64 {
-                font-size: 24px; /* Larger font size on screens wider than 768px */
-                min-width: 196px; /* Minimum width for larger screens */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Quote Styles */
+        .quote {
+            font-size: 2em; /* Larger font size */
+            color: #FFD700;
+            margin: 10px 0; /* Reduced margin */
+            border: 2px solid #FFD700;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px;
+            background: rgba(20, 20, 20, 0.85);
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            display: flex; /* Use flexbox for centering */
+            align-items: center; /* Center vertical alignment */
+            justify-content: center; /* Center horizontal alignment */
+
+            /* Set a fixed height */
+            height: 60px; /* Adjust this height according to your desired design */
+            overflow: hidden; /* Hide any overflowing text */
+        }
+
+        /* Button Styles */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px; /* Slightly increased margin */
+        }
+
+        .button {
+            background-color: #000;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            border-radius: 25px;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1.5em; /* Larger font size */
+            font-weight: bold;
+            margin: 10px; /* Increased margin */
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            min-width: 150px; /* Set minimum width */
+        }
+
+        .button:hover {
+            background-color: #FFD700;
+            color: #000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+        }
+
+        /* Icon Styles */
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
+            gap: 20px; /* Increased space between icons */
+            max-width: 900px;
+            margin: 30px 0;
+        }
+
+        .icon-box {
+            background-color: rgba(20, 20, 20, 0.9);
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Slightly smaller border radius */
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .icon {
+            width: 64px; /* Increased icon size */
+            height: 64px; /* Increased icon size */
+        }
+
+        .icon-label {
+            margin-top: 10px; /* Adjusted margin */
+            font-weight: 500;
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            font-size: 1.2em; /* Larger font size for icon labels */
+        }
+
+        /* Announcement Styles */
+        .announcement {
+            color: #FFD700;
+            font-size: 1.2em; /* Increased font size */
+            margin-top: 15px; /* Increased margin */
+            border: 1px solid #FFD700;
+            padding: 10px; /* Increased padding */
+            border-radius: 10px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
             }
         }
     </style>
 </head>
+
 <body>
     <div class="header">
-        <div class="title">Flow</div>
-        <div class="subtitle">New gaming site, made to fit your needs!</div>
+        <h1>DOPA</h1>
     </div>
-    <div class="button-container">
-        <a href="/" class="button-64" role="button">
-            <span class="text">Home</span>
-        </a>
-        <a href="/games" class="button-64" role="button">
-            <span class="text">Games</span>
-        </a>
-        <a href="https://unblocked.my.canva.site/" class="button-64" role="button" target="_blank">
-            <span class="text">Exploits</span>
-        </a>
-        <a href="/media" class="button-64" role="button">
-            <span class="text">Media</span>
-        </a>
-        <a href="/settings" class="button-64" role="button">
-            <span class="text">Settings</span>
-        </a>
+
+    <div class="quote" id="quoteDisplay" aria-live="polite">Welcome to DOPA, your gateway to luxury!</div>
+
+    <div class="icons-container">
+        <div class="icon-box" onclick="window.location.href='/games'" aria-label="Go to Games">
+            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games">
+            <div class="icon-label">Games</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='apps'" aria-label="Go to Apps">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FFD700/apple-app-store--v2.png" alt="Apps">
+            <div class="icon-label">Apps</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='https://unblocked.my.canva.site/'" aria-label="Go to Exploits">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits">
+            <div class="icon-label">Exploits</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='media'" aria-label="Go to Media">
+            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Media">
+            <div class="icon-label">Media</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='settings'" aria-label="Go to Settings">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FFD700/settings.png" alt="Settings">
+            <div class="icon-label">Settings</div>
+        </div>
     </div>
+
+    <div class="buttons-container">
+        <button class="button" onclick="window.location.href='/credits.html'" aria-label="See Credits">Credits</button>
+        <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
+    </div>
+
+    <p class="announcement">Announcement: added fnaf! Next is minecraft, and baldis basics</p>
+     <p class="announcement">SENPAI RYAN</p>
+    <!-- 2 announcements? might be a good idea... one for dopa, one for myself. idk, good idea or nah? -->
+    <!-- YE -->
+
+    <script>
+        // Quotes Array and Current Index
+        const quotes = [
+            "yeah, we are STILL working on DOPA.",
+            "This site use to only be HTML until we upgraded",
+            "Ton's of games!",
+            "Totally very educational website...",
+            "website still WIP!",
+            "Gold and black theme",
+            "why aren't you working?",
+            "DOPA FOR LIFE",
+            "I KNOW WERE U LIVE RYAN",
+            "WITHERSPOON",
+            "THE MOST SIGMA SITE IN TOWN",
+            "IM AMD DOPA"
+        ];
+
+        let quoteIndex = 0;
+        let currentQuote = '';
+        let letterIndex = 0;
+        const quoteDisplay = document.getElementById('quoteDisplay');
+
+        // Typewriting Effect
+        function typeQuote() {
+            if (letterIndex < quotes[quoteIndex].length) {
+                currentQuote += quotes[quoteIndex].charAt(letterIndex);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex++;
+                setTimeout(typeQuote, 100);
+            } else {
+                setTimeout(backspaceQuote, 1500);
+            }
+        }
+
+        function backspaceQuote() {
+            if (letterIndex > 0) {
+                currentQuote = currentQuote.slice(0, -1);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex--;
+                setTimeout(backspaceQuote, 50);
+            } else {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                setTimeout(typeQuote, 700);
+            }
+        }
+
+        // Start Quote Animation
+        typeQuote();
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const button = document.getElementById('themeToggle');
+            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+        }
+    </script>
 </body>
 </html>
