@@ -7,7 +7,161 @@
     <title>DOPA</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="spark.css">
+    <style>
+        /* General Styles */
+        body {
+            background-color: #330000;
+            color: #FF6347;
+            font-family: 'Raleway', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Use the full viewport height */
+            width: 100vw; /* Use the full viewport width */
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0;
+            text-align: center;
+            user-select: none;
+            transition: background-color 0.3s, color 0.3s; /* Transition for theme change */
+        }
+
+        /* Dark Theme Styles */
+        .dark-theme {
+            background-color: #4B0000; /* Darker background for dark mode */
+            color: #FFA07A; /* Lighter text for contrast */
+        }
+
+        /* Header Styles */
+        .header {
+            margin-bottom: 20px; /* Reduced margin */
+        }
+
+        .header h1 {
+            font-size: 3em; /* Larger font size */
+            color: #FF6347;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Increased letter spacing */
+            text-shadow: 0 0 20px rgba(255, 99, 71, 0.7);
+            animation: fadeIn 1s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Quote Styles */
+        .quote {
+            font-size: 2em; /* Larger font size */
+            color: #FF6347;
+            margin: 10px 0; /* Reduced margin */
+            border: 2px solid #FF6347;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px;
+            background: rgba(75, 0, 0, 0.85);
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            display: flex; /* Use flexbox for centering */
+            align-items: center; /* Center vertical alignment */
+            justify-content: center; /* Center horizontal alignment */
+
+            /* Set a fixed height */
+            height: 60px; /* Adjust this height according to your desired design */
+            overflow: hidden; /* Hide any overflowing text */
+        }
+
+        /* Button Styles */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 15px; /* Slightly increased margin */
+        }
+
+        .button {
+            background-color: #330000;
+            color: #FF6347;
+            border: 2px solid #FF6347;
+            border-radius: 25px;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1.5em; /* Larger font size */
+            font-weight: bold;
+            margin: 10px; /* Increased margin */
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            min-width: 150px; /* Set minimum width */
+        }
+
+        .button:hover {
+            background-color: #FF6347;
+            color: #330000;
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 99, 71, 0.7);
+        }
+
+        /* Icon Styles */
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
+            gap: 20px; /* Increased space between icons */
+            max-width: 900px;
+            margin: 30px 0;
+        }
+
+        .icon-box {
+            background-color: rgba(75, 0, 0, 0.9);
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Slightly smaller border radius */
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(255, 99, 71, 0.5);
+        }
+
+        .icon {
+            width: 64px; /* Increased icon size */
+            height: 64px; /* Increased icon size */
+        }
+
+        .icon-label {
+            margin-top: 10px; /* Adjusted margin */
+            font-weight: 500;
+            color: #FF6347;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+            font-size: 1.2em; /* Larger font size for icon labels */
+        }
+
+        /* Announcement Styles */
+        .announcement {
+            color: #FF6347;
+            font-size: 1.2em; /* Increased font size */
+            margin-top: 15px; /* Increased margin */
+            border: 1px solid #FF6347;
+            padding: 10px; /* Increased padding */
+            border-radius: 10px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -47,35 +201,61 @@
 
     <p class="announcement">Announcement: added fnaf! Next is minecraft, and baldis basics</p>
 
-    <!-- Fire Spark Container -->
-    <div id="fire-container"></div>
-
     <script>
-        // Fire Spark Animation Script
-        const fireContainer = document.getElementById('fire-container');
+        // Quotes Array and Current Index
+        const quotes = [
+            "yeah, we are STILL working on DOPA.",
+            "This site use to only be HTML until we upgraded",
+            "Ton's of games!",
+            "Totally very educational website...",
+            "website still WIP!",
+            "Red and black theme",
+            "why aren't you working?",
+            "DOPA FOR LIFE",
+            "I KNOW WERE U LIVE RYAN",
+            "WITHERSPOON",
+            "THE MOST SIGMA SITE IN TOWN",
+            "IM AMD DOPA"
+        ];
 
-        // Function to create a fire spark
-        function createFireSpark() {
-            const spark = document.createElement('div');
-            spark.classList.add('fire-spark');
-            spark.style.setProperty('--x', Math.random()); // Random X direction
-            spark.style.left = `${Math.random() * window.innerWidth}px`; // Random position
-            fireContainer.appendChild(spark);
+        let quoteIndex = 0;
+        let currentQuote = '';
+        let letterIndex = 0;
+        const quoteDisplay = document.getElementById('quoteDisplay');
 
-            // Remove spark after animation ends
-            setTimeout(() => {
-                spark.remove();
-            }, 3000);
+        // Typewriting Effect
+        function typeQuote() {
+            if (letterIndex < quotes[quoteIndex].length) {
+                currentQuote += quotes[quoteIndex].charAt(letterIndex);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex++;
+                setTimeout(typeQuote, 100);
+            } else {
+                setTimeout(backspaceQuote, 1500);
+            }
         }
 
-        // Generate multiple fire sparks periodically
-        setInterval(() => {
-            const sparksCount = Math.floor(Math.random() * 5) + 1; // Random number of sparks (1-5)
-            for (let i = 0; i < sparksCount; i++) {
-                createFireSpark();
+        function backspaceQuote() {
+            if (letterIndex > 0) {
+                currentQuote = currentQuote.slice(0, -1);
+                quoteDisplay.textContent = currentQuote;
+                letterIndex--;
+                setTimeout(backspaceQuote, 50);
+            } else {
+                quoteIndex = (quoteIndex + 1) % quotes.length;
+                setTimeout(typeQuote, 700);
             }
-        }, 500); // Every 0.5 seconds
+        }
+
+        // Start Quote Animation
+        typeQuote();
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const button = document.getElementById('themeToggle');
+            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+        }
     </script>
 </body>
-
 </html>
