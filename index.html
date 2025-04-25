@@ -1,5 +1,108 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>shut down. why you ask? because we are updating and all the fastly servers are spazzing</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow</title>
+    <style>
+        /* CSS */
+        body {
+            background-image: linear-gradient(135deg, #6A5ACD, #00BFFF); /* Purple to Blue gradient */
+            display: flex;
+            flex-direction: column; /* Arrange title and buttons vertically */
+            align-items: center; /* Center buttons horizontally */
+            justify-content: center; /* Center buttons vertically */
+            min-height: 100vh; /* Full height of the viewport */
+            margin: 0; /* Remove default margin */
+            color: white; /* Text color for the header */
+            font-family: 'Arial', sans-serif; /* Font family for the header */
+            text-align: center; /* Center all text */
+        }
+
+        .header {
+            margin-bottom: 30px; /* Space between header and buttons */
+        }
+
+        .title {
+            font-size: 64px; /* Large font size for title */
+            font-weight: bold; /* Bold text */
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.7); /* Text shadow for depth */
+        }
+
+        .subtitle {
+            font-size: 24px; /* Smaller font size for subtitle */
+            margin-top: 10px; /* Space between title and subtitle */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for effect */
+        }
+
+        .button-64 {
+            align-items: center;
+            background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+            border: 0;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px; /* Shadow effect */
+            box-sizing: border-box; /* Include padding and border in width */
+            color: #FFFFFF; /* Text color */
+            display: flex; /* Flex container */
+            font-family: Phantomsans, sans-serif; /* Font family for buttons */
+            font-size: 20px; /* Font size for buttons */
+            justify-content: center; /* Center text inside button */
+            line-height: 1em; /* Single line height */
+            min-width: 140px; /* Minimum width */
+            margin: 10px; /* Add margin between buttons */
+            padding: 3px; /* Inner padding for the button */
+            text-decoration: none; /* No underline */
+            user-select: none; /* Prevent text selection */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
+        .button-64:active,
+        .button-64:hover {
+            outline: 0; /* Remove outline on focus and hover */
+        }
+
+        .button-64 span {
+            background-color: rgb(5, 6, 45); /* Background color of span */
+            padding: 16px 24px; /* Padding inside the span */
+            border-radius: 6px; /* Rounded corners for the span */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            transition: 300ms; /* Transition effect */
+        }
+
+        .button-64:hover span {
+            background: none; /* Remove background on hover */
+        }
+
+        @media (min-width: 768px) {
+            .button-64 {
+                font-size: 24px; /* Larger font size on screens wider than 768px */
+                min-width: 196px; /* Minimum width for larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">Dopa</div>
+        <div class="subtitle">New gaming site, made to fit your needs! (dopa decided to delete all of main page for some reason, so this is placeholder)</div>
+    </div>
+    <div class="button-container">
+        <a href="/" class="button-64" role="button">
+            <span class="text">Home</span>
+        </a>
+        <a href="/games" class="button-64" role="button">
+            <span class="text">Games</span>
+        </a>
+        <a href="https://unblocked.my.canva.site/" class="button-64" role="button" target="_blank">
+            <span class="text">Exploits</span>
+        </a>
+        <a href="/media" class="button-64" role="button">
+            <span class="text">Media</span>
+        </a>
+        <a href="/settings" class="button-64" role="button">
+            <span class="text">Settings</span>
+        </a>
+    </div>
+</body>
 </html>
