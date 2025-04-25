@@ -4,292 +4,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOPA</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>DOPA - Games</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* General Styles */
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #330000; /* Dark maroon background */
-            color: #FFA07A; /* Light salmon text for better contrast */
-            user-select: none;
-            overflow-y: auto;
-            animation: fadeIn 0.5s forwards;
+            background-color: #330000;
+            color: #FF6347;
+            font-family: 'Raleway', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start;
-            min-height: 100vh;
+            justify-content: center;
+            height: 100vh; /* Use the full viewport height */
+            width: 100vw; /* Use the full viewport width */
+            overflow: hidden; /* Prevent scrolling */
+            margin: 0;
+            text-align: center;
+            user-select: none;
+            transition: background-color 0.3s, color 0.3s; /* Transition for theme change */
+        }
+
+        /* Dark Theme Styles */
+        .dark-theme {
+            background-color: #4B0000; /* Darker background for dark mode */
+            color: #FFA07A; /* Lighter text for contrast */
+        }
+
+        /* Header Styles */
+        .header {
+            margin-bottom: 20px; /* Reduced margin */
+        }
+
+        .header h1 {
+            font-size: 3em; /* Larger font size */
+            color: #FF6347;
+            text-transform: uppercase;
+            letter-spacing: 4px; /* Increased letter spacing */
+            text-shadow: 0 0 20px rgba(255, 99, 71, 0.7);
+            animation: fadeIn 1s ease-in forwards;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
 
-        header {
-            width: 100%;
-            padding: 15px 30px;
-            background: rgba(75, 0, 0, 0.95); /* Dark maroon background with slight opacity */
+        /* Quote Styles */
+        .quote {
+            font-size: 2em; /* Larger font size */
+            color: #FF6347;
+            margin: 10px 0; /* Reduced margin */
+            border: 2px solid #FF6347;
+            padding: 20px; /* Increased padding */
+            border-radius: 10px;
+            background: rgba(75, 0, 0, 0.85);
+            transition: transform 0.3s, box-shadow 0.3s;
+
+            display: flex; /* Use flexbox for centering */
+            align-items: center; /* Center vertical alignment */
+            justify-content: center; /* Center horizontal alignment */
+
+            /* Set a fixed height */
+            height: 60px; /* Adjust this height according to your desired design */
+            overflow: hidden; /* Hide any overflowing text */
+        }
+
+        /* Button Styles */
+        .buttons-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(255, 160, 122, 0.5); /* Light salmon shadow */
-            position: sticky;
-            top: 0;
-            z-index: 10;
+            margin-top: 15px; /* Slightly increased margin */
         }
 
-        header h1 {
-            font-size: 2.5rem;
-            color: #FFA07A; /* Light salmon */
-        }
-
-        .search-container input {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #FFA07A; /* Light salmon border */
-            background-color: #4B0000; /* Darker maroon background */
-            color: #FFA07A; /* Light salmon text */
-            border-radius: 5px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            background-color: #4B0000; /* Darker maroon */
-            color: #FFA07A; /* Light salmon text */
-            border: 2px solid #FFA07A; /* Light salmon border */
-            border-radius: 5px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 2px 5px rgba(255, 160, 122, 0.5); /* Light salmon shadow */
-        }
-
-        .btn:hover {
-            background-color: #FFA07A; /* Light salmon background on hover */
-            color: #4B0000; /* Darker maroon text on hover */
-            transform: scale(1.05);
-        }
-
-        .main-content {
-            width: 90%;
-            margin-top: 20px;
-            background: rgba(75, 0, 0, 0.9); /* Dark maroon with slight opacity */
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(255, 160, 122, 0.5); /* Light salmon shadow */
-        }
-
-        .tagline {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 20px;
+        .button {
+            background-color: #330000;
+            color: #FF6347;
+            border: 2px solid #FF6347;
+            border-radius: 25px;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1.5em; /* Larger font size */
             font-weight: bold;
-            color: #FFA07A; /* Light salmon */
-        }
-
-        .section h2 {
-            color: #FFA07A; /* Light salmon */
-            border-bottom: 2px solid #FFA07A; /* Light salmon underline */
-            padding-bottom: 5px;
-            font-size: 2rem;
-        }
-
-        .games-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 20px;
-        }
-
-        .game {
-            position: relative;
-            width: 100%;
+            margin: 10px; /* Increased margin */
             cursor: pointer;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-            overflow: hidden;
-            box-shadow: 0 2px 5px rgba(255, 160, 122, 0.5); /* Light salmon shadow */
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+            min-width: 150px; /* Set minimum width */
         }
 
-        .game img {
-            width: 100%;
-            border-radius: 10px 10px 0 0;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .game:hover {
+        .button:hover {
+            background-color: #FF6347;
+            color: #330000;
             transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 99, 71, 0.7);
         }
 
-        .game-title {
-            text-align: center;
-            padding: 10px;
-            background: rgba(75, 0, 0, 0.95); /* Dark maroon */
-            color: #FFA07A; /* Light salmon */
-            border-radius: 0 0 10px 10px;
+        /* Icon Styles */
+        .icons-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
+            gap: 20px; /* Increased space between icons */
+            max-width: 900px;
+            margin: 30px 0;
         }
 
-        footer {
-            width: 100%;
-            padding: 20px;
-            background-color: rgba(75, 0, 0, 0.95); /* Dark maroon */
+        .icon-box {
+            background-color: rgba(75, 0, 0, 0.9);
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Slightly smaller border radius */
             text-align: center;
-            color: #FFA07A; /* Light salmon */
-            border-top: 1px solid #FFA07A; /* Light salmon border */
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
         }
 
-        .no-data {
-            color: #FF6347; /* Tomato red for emphasis */
-            font-style: italic;
-            text-align: center;
-            margin-top: 20px;
+        .icon-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 25px rgba(255, 99, 71, 0.5);
+        }
+
+        .icon {
+            width: 64px; /* Increased icon size */
+            height: 64px; /* Increased icon size */
+        }
+
+        .icon-label {
+            margin-top: 10px; /* Adjusted margin */
+            font-weight: 500;
+            color: #FF6347;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+            font-size: 1.2em; /* Larger font size for icon labels */
+        }
+
+        /* Announcement Styles */
+        .announcement {
+            color: #FF6347;
+            font-size: 1.2em; /* Increased font size */
+            margin-top: 15px; /* Increased margin */
+            border: 1px solid #FF6347;
+            padding: 10px; /* Increased padding */
+            border-radius: 10px;
+            animation: pulse 2s infinite alternate;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.05);
+            }
         }
     </style>
 </head>
-
-<body>
-    <header>
-        <h1>DOPA</h1>
-        <div class="search-container">
-            <input type="text" id="search" oninput="filterGames()" placeholder="Search for games...">
-        </div>
-        <button class="btn" onclick="window.location.href='/'">Home</button>
-    </header>
-
-    <div class="main-content">
-        <div class="tagline">“Using Universal's Game Engine”</div>
-        <div class="tagline">
-            <h5>buckshot roulette must be played on netlify only! fastly and others don’t work!</h5>
-        </div>
-
-        <!-- Most Popular Section -->
-        <div class="section" id="most-popular">
-            <h2>Most Popular</h2>
-            <div class="games-container">
-                <div class="game" onclick="playGame('cookieclicker')">
-                    <img src="cookie-clicker.png" alt="Cookie Clicker">
-                    <div class="game-title">Cookie Clicker</div>
-                </div>
-                <div class="game" onclick="playGame('retro-bowl')">
-                    <img src="Retro_Bowl_cover.png" alt="Retro Bowl">
-                    <div class="game-title">Retro Bowl</div>
-                </div>
-                <div class="game" onclick="playGame('block-blast')">
-                    <img src="blockblast.jpg" alt="Block Blast">
-                    <div class="game-title">Block Blast!</div>
-                </div>
-                <div class="game" onclick="playGame('slope')">
-                    <img src="slopeicon.png" alt="Slope">
-                    <div class="game-title">Slope</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- All Games Section -->
-        <div class="section" id="all-games">
-            <h2>All Games</h2>
-            <div class="games-container" id="all-games-container"></div>
-        </div>
-
-        <!-- Recommended Games Section -->
-        <div class="section" id="recommended-games">
-            <h2>Recommended for You</h2>
-            <div class="games-container" id="recommendedContainer"></div>
-            <div id="no-data-message" class="no-data">No data collected yet.</div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="credits">© 2025 DOPA. All Rights Reserved.</div>
-    </footer>
-
-    <script>
-        const games = [
-            { id: 'cookieclicker', title: 'Cookie Clicker', image: 'cookie-clicker.png' },
-            { id: 'retro-bowl', title: 'Retro Bowl', image: 'Retro_Bowl_cover.png' },
-            { id: 'block-blast', title: 'Block Blast!', image: 'blockblast.jpg' },
-            { id: 'slope', title: 'Slope', image: 'slopeicon.png' },
-        ];
-
-        let recentGames = JSON.parse(localStorage.getItem('recentGames')) || [];
-
-        function playGame(gameId) {
-            if (!recentGames.includes(gameId)) {
-                if (recentGames.length >= 4) {
-                    recentGames.pop(); // Remove the oldest game if we already have 4
-                }
-                recentGames.unshift(gameId); // Add the new game to the front
-                localStorage.setItem('recentGames', JSON.stringify(recentGames));
-            }
-
-            window.location.href = `/${gameId}`;
-        }
-
-        function recommendGames() {
-            const recommendedContainer = document.getElementById('recommendedContainer');
-            const noDataMessage = document.getElementById('no-data-message');
-            recommendedContainer.innerHTML = ''; // Clear previous recommendations
-            noDataMessage.style.display = 'none'; // Hide no data message initially
-
-            if (recentGames.length === 0) {
-                noDataMessage.style.display = 'block';
-                return;
-            }
-
-            const recommended = games.filter(game => recentGames.includes(game.id)).slice(0, 4);
-            recommended.forEach(game => {
-                const gameElement = document.createElement('div');
-                gameElement.className = 'game';
-                gameElement.onclick = () => playGame(game.id);
-                gameElement.innerHTML = `
-                    <img src="${game.image}" alt="${game.title}">
-                    <div class="game-title">${game.title}</div>
-                `;
-                recommendedContainer.appendChild(gameElement);
-            });
-        }
-
-        function loadAllGames() {
-            const allGamesContainer = document.getElementById('all-games-container');
-            allGamesContainer.innerHTML = ''; // Clear previous games
-            games.forEach(game => {
-                const gameElement = document.createElement('div');
-                gameElement.className = 'game';
-                gameElement.onclick = () => playGame(game.id);
-                gameElement.innerHTML = `
-                    <img src="${game.image}" alt="${game.title}">
-                    <div class="game-title">${game.title}</div>
-                `;
-                allGamesContainer.appendChild(gameElement);
-            });
-        }
-
-        function filterGames() {
-            const searchInput = document.getElementById('search').value.toLowerCase();
-            const gamesContainer = document.querySelectorAll('.game');
-            gamesContainer.forEach(game => {
-                const title = game.querySelector('.game-title').textContent.toLowerCase();
-                game.style.display = title.includes(searchInput) ? '' : 'none';
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            loadAllGames();
-            recommendGames();
-        });
-    </script>
-</body>
-
-</html>
