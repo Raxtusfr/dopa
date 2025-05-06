@@ -1,0 +1,12 @@
+# wasmer.yml
+name: itsgivingzest9000 # Give your Wasmer app a descriptive name
+package: wasmer.io/bronomion/itsgivingzest9000 # Replace with your Wasmer username and a package name you want
+
+# Configure the entry point to run your Python server
+entrypoint:
+  command: python server.py # This tells Wasmer to run the server.py script
+
+# Specify the port your application listens on so Wasmer can expose it
+ports:
+  - port: 8080 # The port your Python server is listening on
+    protocol: tcp
