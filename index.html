@@ -10,39 +10,39 @@
     <style>
         /* General Styles */
         body {
-            background-color: #000;
-            color: #FFD700; /* Gold for text */
+            background-color: #40E0D0; /* Turquoise background */
+            color: #FFFFFF; /* White text for contrast */
             font-family: 'Raleway', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
+            height: 100vh; /* Use the full viewport height */
+            width: 100vw; /* Use the full viewport width */
+            overflow: hidden; /* Prevent scrolling */
             margin: 0;
             text-align: center;
             user-select: none;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s, color 0.3s; /* Transition for theme change */
         }
 
         /* Dark Theme Styles */
         .dark-theme {
-            background-color: #1a1a1a;
-            color: #e0e0e0; /* Lighter text for contrast */
+            background-color: #1a1a1a; /* Darker background for dark mode */
+            color: #5FDCE3; /* Turquoise for text in dark mode */
         }
 
         /* Header Styles */
         .header {
-            margin-bottom: 20px;
+            margin-bottom: 20px; /* Reduced margin */
         }
 
         .header h1 {
-            font-size: 3em;
-            color: #FFD700;
+            font-size: 3em; /* Larger font size */
+            color: #FFFFFF; /* White for the header text */
             text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            letter-spacing: 4px; /* Increased letter spacing */
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.7);
             animation: fadeIn 1s ease-in forwards;
         }
 
@@ -50,6 +50,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -57,20 +58,22 @@
 
         /* Quote Styles */
         .quote {
-            font-size: 2em;
-            color: #FFD700;
-            margin: 10px 0;
-            border: 2px solid #FFD700;
-            padding: 20px;
+            font-size: 2em; /* Larger font size */
+            color: #FFFFFF; /* White for quotes */
+            margin: 10px 0; /* Reduced margin */
+            border: 2px solid #FFFFFF; /* White border */
+            padding: 20px; /* Increased padding */
             border-radius: 10px;
             background: rgba(20, 20, 20, 0.85);
             transition: transform 0.3s, box-shadow 0.3s;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 60px;
-            overflow: hidden;
+            display: flex; /* Use flexbox for centering */
+            align-items: center; /* Center vertical alignment */
+            justify-content: center; /* Center horizontal alignment */
+
+            /* Set a fixed height */
+            height: 60px; /* Adjust this height according to your desired design */
+            overflow: hidden; /* Hide any overflowing text */
         }
 
         /* Button Styles */
@@ -78,43 +81,43 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 15px; /* Slightly increased margin */
         }
 
         .button {
-            background-color: #000;
-            color: #FFD700;
-            border: 2px solid #FFD700;
+            background-color: #40E0D0; /* Turquoise background */
+            color: #FFFFFF; /* White text */
+            border: 2px solid #FFFFFF; /* White border */
             border-radius: 25px;
-            padding: 15px 30px;
-            font-size: 1.5em;
+            padding: 15px 30px; /* Increased padding */
+            font-size: 1.5em; /* Larger font size */
             font-weight: bold;
-            margin: 10px;
+            margin: 10px; /* Increased margin */
             cursor: pointer;
             transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            min-width: 150px;
+            min-width: 150px; /* Set minimum width */
         }
 
         .button:hover {
-            background-color: #FFD700;
-            color: #000;
+            background-color: #5FDCE3; /* Lighter turquoise on hover */
+            color: #000; /* Black text on hover */
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+            box-shadow: 0 0 25px rgba(64, 224, 208, 0.7);
         }
 
         /* Icon Styles */
         .icons-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
+            gap: 20px; /* Increased space between icons */
             max-width: 900px;
             margin: 30px 0;
         }
 
         .icon-box {
-            background-color: rgba(20, 20, 20, 0.9);
-            padding: 15px;
-            border-radius: 10px;
+            background-color: rgba(64, 224, 208, 0.9); /* Turquoise box */
+            padding: 15px; /* Increased padding */
+            border-radius: 10px; /* Slightly smaller border radius */
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
@@ -122,29 +125,29 @@
 
         .icon-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 5px 25px rgba(64, 224, 208, 0.5);
         }
 
         .icon {
-            width: 64px;
-            height: 64px;
+            width: 64px; /* Increased icon size */
+            height: 64px; /* Increased icon size */
         }
 
         .icon-label {
-            margin-top: 10px;
+            margin-top: 10px; /* Adjusted margin */
             font-weight: 500;
-            color: #FFD700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            font-size: 1.2em;
+            color: #FFFFFF; /* White for icon labels */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            font-size: 1.2em; /* Larger font size for icon labels */
         }
 
         /* Announcement Styles */
         .announcement {
-            color: #FFD700;
-            font-size: 1.2em;
-            margin-top: 15px;
-            border: 1px solid #FFD700;
-            padding: 10px;
+            color: #FFFFFF; /* White for announcement text */
+            font-size: 1.2em; /* Increased font size */
+            margin-top: 15px; /* Increased margin */
+            border: 1px solid #FFFFFF; /* White border */
+            padding: 10px; /* Increased padding */
             border-radius: 10px;
             animation: pulse 2s infinite alternate;
         }
@@ -153,6 +156,7 @@
             from {
                 transform: scale(1);
             }
+
             to {
                 transform: scale(1.05);
             }
@@ -173,8 +177,12 @@
             <div class="icon-label">Games</div>
         </div>
         <div class="icon-box" onclick="window.location.href='apps'" aria-label="Go to Apps">
-            <img class="icon" src="https://img.icons8.com/ios7/600/FFD700/apple-app-store--v2.png" alt="Apps">
+            <img class="icon" src="https://img.icons8.com/ios7/600/40E0D0/apple-app-store--v2.png" alt="Apps">
             <div class="icon-label">Apps</div>
+        </div>
+        <div class="icon-box" onclick="window.location.href='https://unblocked.my.canva.site/'" aria-label="Go to Exploits">
+            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits">
+            <div class="icon-label">Exploits</div>
         </div>
         <div class="icon-box" onclick="window.location.href='media'" aria-label="Go to Media">
             <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Media">
@@ -191,7 +199,7 @@
             "Ton's of games!",
             "Totally very educational website...",
             "Website still WIP!",
-            "Gold and black theme",
+            "Gold and turquoise theme",
             "Why aren't you working?",
             "Turquoise FOR LIFE",
             "I KNOW WHERE YOU LIVE RYAN",
