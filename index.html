@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>calculator - Google Search</title>
-    <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
+    <title>DOPA</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
-            background-color: #40E0D0; /* Turquoise background */
-            color: #FFFFFF; /* White text for contrast */
+            background-color: #330000;
+            color: #FF6347;
             font-family: 'Raleway', sans-serif;
             display: flex;
             flex-direction: column;
@@ -28,8 +28,8 @@
 
         /* Dark Theme Styles */
         .dark-theme {
-            background-color: #1a1a1a; /* Darker background for dark mode */
-            color: #5FDCE3; /* Turquoise for text in dark mode */
+            background-color: #4B0000; /* Darker background for dark mode */
+            color: #FFA07A; /* Lighter text for contrast */
         }
 
         /* Header Styles */
@@ -39,10 +39,10 @@
 
         .header h1 {
             font-size: 3em; /* Larger font size */
-            color: #FFFFFF; /* White for the header text */
+            color: #FF6347;
             text-transform: uppercase;
             letter-spacing: 4px; /* Increased letter spacing */
-            text-shadow: 0 0 20px rgba(64, 224, 208, 0.7);
+            text-shadow: 0 0 20px rgba(255, 99, 71, 0.7);
             animation: fadeIn 1s ease-in forwards;
         }
 
@@ -59,12 +59,12 @@
         /* Quote Styles */
         .quote {
             font-size: 2em; /* Larger font size */
-            color: #FFFFFF; /* White for quotes */
+            color: #FF6347;
             margin: 10px 0; /* Reduced margin */
-            border: 2px solid #FFFFFF; /* White border */
+            border: 2px solid #FF6347;
             padding: 20px; /* Increased padding */
             border-radius: 10px;
-            background: rgba(20, 20, 20, 0.85);
+            background: rgba(75, 0, 0, 0.85);
             transition: transform 0.3s, box-shadow 0.3s;
 
             display: flex; /* Use flexbox for centering */
@@ -85,9 +85,9 @@
         }
 
         .button {
-            background-color: #40E0D0; /* Turquoise background */
-            color: #FFFFFF; /* White text */
-            border: 2px solid #FFFFFF; /* White border */
+            background-color: #330000;
+            color: #FF6347;
+            border: 2px solid #FF6347;
             border-radius: 25px;
             padding: 15px 30px; /* Increased padding */
             font-size: 1.5em; /* Larger font size */
@@ -99,10 +99,10 @@
         }
 
         .button:hover {
-            background-color: #5FDCE3; /* Lighter turquoise on hover */
-            color: #000; /* Black text on hover */
+            background-color: #FF6347;
+            color: #330000;
             transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(64, 224, 208, 0.7);
+            box-shadow: 0 0 25px rgba(255, 99, 71, 0.7);
         }
 
         /* Icon Styles */
@@ -115,7 +115,7 @@
         }
 
         .icon-box {
-            background-color: rgba(64, 224, 208, 0.9); /* Turquoise box */
+            background-color: rgba(75, 0, 0, 0.9);
             padding: 15px; /* Increased padding */
             border-radius: 10px; /* Slightly smaller border radius */
             text-align: center;
@@ -125,7 +125,7 @@
 
         .icon-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(64, 224, 208, 0.5);
+            box-shadow: 0 5px 25px rgba(255, 99, 71, 0.5);
         }
 
         .icon {
@@ -136,17 +136,17 @@
         .icon-label {
             margin-top: 10px; /* Adjusted margin */
             font-weight: 500;
-            color: #FFFFFF; /* White for icon labels */
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            color: #FF6347;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
             font-size: 1.2em; /* Larger font size for icon labels */
         }
 
         /* Announcement Styles */
         .announcement {
-            color: #FFFFFF; /* White for announcement text */
+            color: #FF6347;
             font-size: 1.2em; /* Increased font size */
             margin-top: 15px; /* Increased margin */
-            border: 1px solid #FFFFFF; /* White border */
+            border: 1px solid #FF6347;
             padding: 10px; /* Increased padding */
             border-radius: 10px;
             animation: pulse 2s infinite alternate;
@@ -166,10 +166,10 @@
 
 <body>
     <div class="header">
-        <h1>Turquoise</h1>
+        <h1>DOPA</h1>
     </div>
 
-    <div class="quote" id="quoteDisplay" aria-live="polite">Welcome to Turquoise, your gateway to luxury!</div>
+    <div class="quote" id="quoteDisplay" aria-live="polite">Welcome to DOPA, your gateway to luxury!</div>
 
     <div class="icons-container">
         <div class="icon-box" onclick="window.location.href='/games'" aria-label="Go to Games">
@@ -177,7 +177,7 @@
             <div class="icon-label">Games</div>
         </div>
         <div class="icon-box" onclick="window.location.href='apps'" aria-label="Go to Apps">
-            <img class="icon" src="https://img.icons8.com/ios7/600/40E0D0/apple-app-store--v2.png" alt="Apps">
+            <img class="icon" src="https://img.icons8.com/ios7/600/FF6347/apple-app-store--v2.png" alt="Apps">
             <div class="icon-label">Apps</div>
         </div>
         <div class="icon-box" onclick="window.location.href='https://unblocked.my.canva.site/'" aria-label="Go to Exploits">
@@ -188,24 +188,34 @@
             <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Media">
             <div class="icon-label">Media</div>
         </div>
+        <div class="icon-box" onclick="window.location.href='settings'" aria-label="Go to Settings">
+            <img class="icon" src="https://img.icons8.com/m_rounded/512/FF6347/settings.png" alt="Settings">
+            <div class="icon-label">Settings</div>
+        </div>
     </div>
 
-    <p class="announcement">Announcement: Fixed minor bugs</p>
+    <div class="buttons-container">
+        <button class="button" onclick="window.location.href='/credits.html'" aria-label="See Credits">Credits</button>
+        <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
+    </div>
+
+    <p class="announcement">Announcement: added fnaf! Next is minecraft, and baldis basics</p>
 
     <script>
+        // Quotes Array and Current Index
         const quotes = [
-            "yeah, we are STILL working on Turquoise.",
-            "This site used to only be HTML until we upgraded.",
+            "yeah, we are STILL working on DOPA.",
+            "This site use to only be HTML until we upgraded",
             "Ton's of games!",
             "Totally very educational website...",
-            "Website still WIP!",
-            "Gold and turquoise theme",
-            "Why aren't you working?",
-            "Turquoise FOR LIFE",
-            "I KNOW WHERE YOU LIVE RYAN",
+            "website still WIP!",
+            "Red and black theme",
+            "why aren't you working?",
+            "DOPA FOR LIFE",
+            "I KNOW WERE U LIVE RYAN",
             "WITHERSPOON",
             "THE MOST SIGMA SITE IN TOWN",
-            "I AM Turquoise"
+            "IM AMD DOPA"
         ];
 
         let quoteIndex = 0;
@@ -213,6 +223,7 @@
         let letterIndex = 0;
         const quoteDisplay = document.getElementById('quoteDisplay');
 
+        // Typewriting Effect
         function typeQuote() {
             if (letterIndex < quotes[quoteIndex].length) {
                 currentQuote += quotes[quoteIndex].charAt(letterIndex);
@@ -236,7 +247,15 @@
             }
         }
 
+        // Start Quote Animation
         typeQuote();
+
+        // Theme Toggle Function
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            const button = document.getElementById('themeToggle');
+            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+        }
     </script>
 </body>
 </html>
