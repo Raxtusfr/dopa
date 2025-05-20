@@ -1,7 +1,6 @@
-<hh_fake_doctype> html</hh_fake_doctype>
-<hh_fake_tag_name_html lang="en">
-<!-- recoded -->
-<hh_fake_tag_name_head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOPA</title>
@@ -17,70 +16,63 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh; /* Use the full viewport height */
-            width: 100vw; /* Use the full viewport width */
-            overflow: hidden; /* Prevent scrolling */
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
             margin: 0;
             text-align: center;
             user-select: none;
-            transition: background-color 0.3s, color 0.3s; /* Transition for theme change */
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark Theme Styles */
+        /* Dark theme */
         .dark-theme {
-            background-color: #1a1a1a; /* Darker background for dark mode */
-            color: #e0e0e0; /* Lighter text for contrast */
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
 
-        /* Header Styles */
+        /* Header styles */
         .header {
-            margin-bottom: 20px; /* Reduced margin */
+            margin-bottom: 20px;
         }
 
         .header h1 {
-            font-size: 3em; /* Larger font size */
+            font-size: 3em;
             color: #FFD700;
             text-transform: uppercase;
-            letter-spacing: 4px; /* Increased letter spacing */
+            letter-spacing: 4px;
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
             animation: fadeIn 1s ease-in forwards;
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        /* Quote Styles */
+        /* Quote styles */
         .quote {
-            font-size: 2em; /* Larger font size */
+            font-size: 2em;
             color: #FFD700;
-            margin: 10px 0; /* Reduced margin */
+            margin: 10px 0;
             border: 2px solid #FFD700;
-            padding: 20px; /* Increased padding */
+            padding: 20px;
             border-radius: 10px;
             background: rgba(20, 20, 20, 0.85);
             transition: transform 0.3s, box-shadow 0.3s;
-
-            display: flex; /* Use flexbox for centering */
-            align-items: center; /* Center vertical alignment */
-            justify-content: center; /* Center horizontal alignment */
-
-            /* Set a fixed height */
-            height: 60px; /* Adjust this height according to your desired design */
-            overflow: hidden; /* Hide any overflowing text */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            overflow: hidden;
         }
 
-        /* Button Styles */
+        /* Buttons container */
         .buttons-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 15px; /* Slightly increased margin */
+            margin-top: 15px;
         }
 
         .button {
@@ -88,13 +80,13 @@
             color: #FFD700;
             border: 2px solid #FFD700;
             border-radius: 25px;
-            padding: 15px 30px; /* Increased padding */
-            font-size: 1.5em; /* Larger font size */
+            padding: 15px 30px;
+            font-size: 1.5em;
             font-weight: bold;
-            margin: 10px; /* Increased margin */
+            margin: 10px;
             cursor: pointer;
             transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            min-width: 150px; /* Set minimum width */
+            min-width: 150px;
         }
 
         .button:hover {
@@ -104,22 +96,23 @@
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
         }
 
-        /* Icon Styles */
+        /* Icons container styles */
         .icons-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Increased min size */
-            gap: 20px; /* Increased space between icons */
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
             max-width: 900px;
             margin: 30px 0;
         }
 
         .icon-box {
             background-color: rgba(20, 20, 20, 0.9);
-            padding: 15px; /* Increased padding */
-            border-radius: 10px; /* Slightly smaller border radius */
+            padding: 15px;
+            border-radius: 10px;
             text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
+            cursor: pointer;
         }
 
         .icon-box:hover {
@@ -128,41 +121,36 @@
         }
 
         .icon {
-            width: 64px; /* Increased icon size */
-            height: 64px; /* Increased icon size */
+            width: 64px;
+            height: 64px;
         }
 
         .icon-label {
-            margin-top: 10px; /* Adjusted margin */
+            margin-top: 10px;
             font-weight: 500;
             color: #FFD700;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            font-size: 1.2em; /* Larger font size for icon labels */
+            font-size: 1.2em;
         }
 
-        /* Announcement Styles */
+        /* Announcement styles */
         .announcement {
             color: #FFD700;
-            font-size: 1.2em; /* Increased font size */
-            margin-top: 15px; /* Increased margin */
+            font-size: 1.2em;
+            margin-top: 15px;
             border: 1px solid #FFD700;
-            padding: 10px; /* Increased padding */
+            padding: 10px;
             border-radius: 10px;
             animation: pulse 2s infinite alternate;
         }
 
         @keyframes pulse {
-            from {
-                transform: scale(1);
-            }
-            to {
-                transform: scale(1.05);
-            }
+            from { transform: scale(1); }
+            to { transform: scale(1.05); }
         }
     </style>
-</hhead>
-
-<hh_fake_tag_name_body>
+</head>
+<body>
     <div class="header">
         <h1>DOPA</h1>
     </div>
@@ -201,11 +189,8 @@
 
     <p class="announcement">Announcement: added fnaf! Next is minecraft, and baldis basics</p>
     <p class="announcement">SENPAI RYAN</p>
-    <!-- 2 announcements? might be a good idea... one for dopa, one for myself. idk, good idea or nah? -->
-    <!-- YE -->
 
     <script>
-        // Quotes Array and Current Index
         const quotes = [
             "yeah, we are STILL working on DOPA.",
             "This site use to only be HTML until we upgraded",
@@ -226,7 +211,6 @@
         let letterIndex = 0;
         const quoteDisplay = document.getElementById('quoteDisplay');
 
-        // Typewriting Effect
         function typeQuote() {
             if (letterIndex < quotes[quoteIndex].length) {
                 currentQuote += quotes[quoteIndex].charAt(letterIndex);
@@ -250,15 +234,14 @@
             }
         }
 
-        // Start Quote Animation
+        // Start quote animation
         typeQuote();
 
-        // Theme Toggle Function
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
-            const button = document.getElementById('themeToggle');
-            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+            const btn = document.getElementById('themeToggle');
+            btn.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
         }
     </script>
-</hh_fake_tag_name_body>
-</hh_fake_tag_name_html>
+</body>
+</html>
