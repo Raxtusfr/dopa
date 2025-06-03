@@ -2,126 +2,438 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOPA - Credits</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Styles */
-        body {
-            background-color: #000;
-            color: #ff0000;
-            font-family: 'Raleway', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            user-select: none;
-            transition: background-color 0.3s, color 0.3s;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<title>DOPA - Games</title>
+<style>
+* {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
 
-        /* Dark Theme Styles */
-        .dark-theme {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
+body {
+font-family: 'Arial', sans-serif;
+background-color: #000; /* Black background */
+color: #ff0000; /* Gold color */
+user-select: none;
+overflow-y: auto;
+animation: fadeIn 0.5s forwards;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: flex-start;
+min-height: 100vh; /* Ensure full height */
+}
 
-        /* Header Styles */
-        .header {
-            margin-bottom: 50px;
-        }
+@keyframes fadeIn {
+from {
+opacity: 0;
+}
 
-        .header h1 {
-            font-size: 4.5em;
-            color: #ff0000;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-        }
+to {
+opacity: 1;
+}
+}
 
-        /* Credits List Styles */
-        .credits-list {
-            font-size: 1.5em;
-            margin: 20px 0;
-        }
+header {
+width: 100%;
+padding: 15px 30px;
+background: rgba(20, 20, 20, 0.9); /* Dark background */
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5); /* Gold shadow */
+position: sticky;
+top: 0;
+z-index: 10;
+}
 
-        .credits-list h2 {
-            font-size: 2em;
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-        }
+header h1 {
+font-size: 2.5rem; /* Header font */
+}
 
-        .credits-item {
-            margin: 5px 0;
-        }
+.search-container {
+flex-grow: 1;
+max-width: 400px;
+margin-right: 15px;
+}
 
-        /* Button Styles */
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
+.search-container input {
+width: 100%;
+padding: 10px;
+border: 2px solid #ff0000; /* Gold border */
+background-color: #222; /* Dark background */
+color: #ff0000; /* Gold text */
+border-radius: 5px;
+font-size: 1.1rem;
+}
 
-        .button {
-            background-color: #000;
-            color: #ff0000;
-            border: 2px solid #ff0000;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-size: 1.3em;
-            font-weight: bold;
-            margin: 10px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-        }
+.btn {
+background-color: #000; /* Black background */
+color: #ff0000; /* Gold text */
+border: 2px solid #ff0000; /* Gold border */
+border-radius: 5px;
+padding: 10px 20px;
+cursor: pointer;
+font-size: 1rem;
+transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+box-shadow: 0 2px 5px rgba(255, 215, 0, 0.5); /* Gold shadow */
+animation: buttonAnimation 0.3s ease;
+}
 
-        .button:hover {
-            background-color: #ff0000;
-            color: #000;
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
-        }
-    </style>
+@keyframes buttonAnimation {
+0% {
+transform: scale(1);
+}
+
+50% {
+transform: scale(1.05);
+}
+
+100% {
+transform: scale(1);
+}
+}
+
+.btn:hover {
+background-color: #ff0000; /* Gold background on hover */
+color: black; /* Black text on hover */
+transform: scale(1.05);
+}
+
+.main-content {
+width: 90%;
+margin-top: 20px;
+background: rgba(255, 255, 255, 0.1); /* Slightly tinted background for content */
+border-radius: 10px;
+padding: 20px;
+box-shadow: 0 2px 10px rgba(255, 0, 0, 0.5); /* Gold shadow */
+}
+
+.tagline {
+font-size: 1.5rem;
+text-align: center;
+margin-bottom: 20px;
+font-weight: bold;
+}
+
+.section {
+margin: 20px 0;
+}
+
+.section h2 {
+color: #ff0000; /* Gold title */
+border-bottom: 2px solid #ff0000; /* Gold underline */
+padding-bottom: 5px;
+font-size: 2rem;
+}
+
+.games-container {
+display: grid; /* Changed to grid */
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 20px; /* Space between game cards */
+}
+
+.game {
+position: relative;
+width: 100%;
+cursor: pointer;
+border-radius: 10px;
+transition: transform 0.3s ease;
+overflow: hidden;
+box-shadow: 0 2px 5px rgba(255, 0, 0, 0.5); /* Gold shadow */
+}
+
+.game img {
+width: 100%;
+border-radius: 10px 10px 0 0;
+height: 100px; /* Fixed height */
+object-fit: cover;
+}
+
+.game:hover {
+transform: scale(1.05);
+}
+
+.game-title {
+text-align: center;
+padding: 10px;
+background: rgba(255, 255, 255, 0.1); /* Slight background for the title */
+color: #ff0000; /* Gold text */
+border-radius: 0 0 10px 10px;
+}
+
+footer {
+width: 100%;
+padding: 20px;
+background-color: rgba(20, 20, 20, 0.9); /* Dark footer */
+text-align: center;
+color: #ff0000; /* Gold text */
+border-top: 1px solid #ff0000; /* Gold border */
+}
+
+.no-data {
+color: #555; /* Grey for no data message */
+font-style: italic;
+text-align: center;
+margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>DOPA - Credits</h1>
-    </div>
+<header>
+<h1>DOPA</h1>
+<div class="search-container">
+<input type="text" id="search" oninput="filterGames()" placeholder="Search for games...">
+</div>
+<button class="btn" onclick="window.location.href='/'">Home</button>
+</header>
 
-    <div class="credits-list">
-        <h2>Development Team</h2>
-        <div class="credits-item">H (bronomion) - Founder & Lead Developer</div>
-        <div class="credits-item">H (bronomion) - UI/UX Designer</div>
-        <div class="credits-item">Z - Does Announcments</div>
-        <div class="credits-item">Z - OG, made up DOPA</div>
-        
-        <h2>Special Thanks</h2>
-        <div class="credits-item">The Open Source Community</div>
-        <div class="credits-item">Our Supporters</div>
-    </div>
+<div class="main-content">
+<div class="tagline">“Using Universal's Game Engine”</div>
+<div class="tagline"><h5>buckshot roulette must be played on netlify only! fastly and others dont work!</h5></div>
 
-    <h2>HELLPPLPLPLPLPLPLOL MMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</h2>
-    </div>
+<!-- Most Popular Section -->
+<div class="section" id="most-popular">
+<h2>Most Popular</h2>
+<div class="games-container">
+<div class="game" onclick="playGame('cookieclicker')">
+<img src="cookie-clicker.png" alt="Cookie Clicker">
+<div class="game-title">Cookie Clicker</div>
+</div>
+<div class="game" onclick="playGame('retro-bowl')">
+<img src="Retro_Bowl_cover.png" alt="Retro Bowl">
+<div class="game-title">Retro Bowl</div>
+</div>
+<div class="game" onclick="playGame('block-blast')">
+<img src="blockblast.jpg" alt="blockblast">
+<div class="game-title">Block Blast!</div>
+</div>
+<div class="game" onclick="playGame('slope')">
+<img src="slopeicon.png" alt="Slope">
+<div class="game-title">Slope</div>
+</div>
+</div>
+</div>
 
-    <div class="buttons-container">
-        <button class="button" onclick="window.location.href='/'" aria-label="Go Back to Home">Back to Home</button>
-        <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
-    </div>
+<!-- All Games Section -->
+<div class="section" id="all-games">
+<h2>All Games</h2>
+<div class="games-container" id="all-games-container"></div>
+</div>
 
-    <script>
-        // Theme Toggle Function
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            const button = document.getElementById('themeToggle');
-            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
-        }
-    </script>
+<!-- Recommended Games Section -->
+<div class="section" id="recommended-games">
+<h2>Recommended for You</h2>
+<div class="games-container" id="recommendedContainer"></div>
+<div id="no-data-message" class="no-data">No data collected yet.</div>
+</div>
+</div>
+
+<footer>
+<div class="credits">© 2025 DOPA. All Rights Reserved.</div>
+<div class="social-icons">
+<button class="btn"
+style="background: none; border: none; color: #FFD700; cursor: pointer; font-size: 1.5rem;"
+onclick="window.open('https://www.youtube.com/')">🔴 YouTube</button>
+</div>
+</footer>
+
+<script>
+const games = [
+{ id: 'cookieclicker', title: 'Cookie Clicker', image: 'cookie-clicker.png' },
+{ id: '2048', title: '2048', image: '2048_logo.png' },
+{ id: 'flappybird', title: 'Flappy Bird', image: 'Flappy_Bird_icon.png' },
+{ id: 'chrome-dino', title: 'Chrome Dino', image: 'Social_dino_with_hat.gif' },
+{ id: 'penguino', title: 'Penguino', image: '3002414_nescartridges_penguino.png' },
+{ id: 'backrooms', title: 'Backrooms', image: 'backroomsgificon.gif' },
+{ id: 'retro-bowl', title: 'Retro Bowl', image: 'Retro_Bowl_cover.png' },
+{ id: 'worlds-hardest-game', title: 'World\'s Hardest Game', image: 'HardestGameIcon.png' },
+{ id: 'worlds-hardest-game-2', title: 'World\'s Hardest Game 2', image: 'HardestGameIcon.png' },
+{ id: 'you-are-bezos', title: 'You Are Bezos', image: 'JeffBezosYes.png' },
+{ id: 'just-one-boss', title: 'Just One Boss', image: 'bossicon.png' },
+{ id: 'DogeMiner', title: 'Doge Miner', image: 'DogeMiningicon.png' },
+{ id: '1', title: '1', image: '1iconthing.png' },
+{ id: 'among-us', title: 'Among Us', image: 'red842.png' },
+{ id: 'sandbox', title: 'Sandbox', image: 'sandboxicon.png' },
+{ id: 'championarcher', title: 'Champion Archer', image: 'championarcher.png' },
+{ id: 'interactivebuddy', title: 'Interactive Buddy', image: 'interactivebuddy.png' },
+{ id: 'slope', title: 'Slope', image: 'slopeicon.png' },
+{ id: 'getaway-shootout', title: 'Getaway Shootout', image: 'getaway.jpg' },
+{ id: 'tunnel-rush', title: 'Tunnel Rush', image: 'tunnel.jpg' },
+{ id: 'paperio2', title: 'paper.io 2', image: 'paperioicon.jpeg' },
+{ id: 'a-dance-of-fire-and-ice', title: 'A Dance of Fire and Ice', image: 'adofai.png' },
+{ id: 'alienhominid', title: 'Alien Hominid', image: 'alienhominid.webp' },
+{ id: 'wolf3d', title: 'Wolfenstein', image: 'wolfenstein.jpeg' },
+// New games added below
+{ id: 'hexgl', title: 'HexGL', image: 'hexgl.png' },
+{ id: 'achievementunlocked', title: 'Achievement Unlocked', image: 'achievementunlocked.png' },
+{ id: 'adrenalinechallenge', title: 'Adrenaline Challenge', image: 'adrenalinechallenge.jpeg' },
+{ id: 'basketball-stars', title: 'Basketball Stars', image: 'basketballstars.jpeg' },
+{ id: 'battleforgondor', title: 'Battle for Gondor', image: 'battleofgondor.jpeg' },
+{ id: 'bigredbutton', title: 'Big Red Button', image: 'big-red-button.jpg' },
+{ id: 'blackknight', title: 'Black Knight', image: 'blackknight.jpg' },
+{ id: 'bloonstd', title: 'Bloons Tower Defense', image: 'bloonstd.jpeg' },
+{ id: 'bloonstd2', title: 'Bloons Tower Defense 2', image: 'bloonstd.jpeg' },
+{ id: 'bloxors', title: 'Bloxors', image: 'bloxorz.jpeg' },
+{ id: 'btts', title: 'BTTS', image: 'idkistolethis.png' },
+{ id: 'cannon-basketball-4', title: 'Cannon Basketball 4', image: 'cannonbasketball4.jpeg' },
+{ id: 'cell-machine', title: 'Cell Machine', image: 'cellmachine.jpeg' },
+{ id: 'connect3', title: 'Connect 3', image: 'yeayhhhdhhd.png' },
+{ id: 'craftmine', title: 'Craft Mine', image: 'craftmine.jpeg' },
+{ id: 'creativekillchamber', title: 'Creative Kill Chamber', image: 'creative.jpeg' },
+{ id: 'csgo-clicker', title: 'CS:GO Clicker', image: 'csgoclicker.png' },
+{ id: 'ctr-holiday', title: 'CTR Holiday', image: 'cutetherope.png' },
+{ id: 'ctr-tr', title: 'CTR TR', image: 'cutetherope.png' },
+{ id: 'ctr', title: 'CTR', image: 'cutetherope.png' },
+{ id: 'cubefield', title: 'Cube Field', image: 'cubefield.jpeg' },
+{ id: 'cupcake2048', title: 'Cupcake 2048', image: 'cupcake2048.png' },
+{ id: 'deal-or-no-deal', title: 'Deal or No Deal', image: 'dealornodealsir.jpg' },
+{ id: 'death-run-3d', title: 'Death Run 3D', image: 'deathrun3d.png' },
+{ id: 'defend-the-tank', title: 'Defend the Tank', image: 'defendthetank.jpeg' },
+{ id: 'doge2048', title: 'Doge 2048', image: 'doge2048.gif' },
+{ id: 'doodle-jump', title: 'Doodle Jump', image: 'doodlejump.jpg' },
+{ id: 'doublewires', title: 'Double Wires', image: 'DoubleWires.png' },
+{ id: 'draw-the-hill', title: 'Draw the Hill', image: 'drawthehill.jpg' },
+{ id: 'ducklife1', title: 'Duck Life 1', image: 'ducklife.webp' },
+{ id: 'ducklife2', title: 'Duck Life 2', image: 'ducklife.webp' },
+{ id: 'ducklife3', title: 'Duck Life 3', image: 'ducklife.webp' },
+{ id: 'edgenotfound', title: 'Edge Not Found', image: 'EdgeNotFound.jpeg' },
+{ id: 'evil-glitch', title: 'Evil Glitch', image: 'evilglitch.jpg' },
+{ id: 'exo', title: 'Exo', image: 'Exo.jpg' },
+{ id: 'game-inside', title: 'Game Inside', image: 'gameinsideagameinsideagameinsiyeahyougetit.png' },
+{ id: 'geodash', title: 'Geo Dash', image: 'gd.png' },
+{ id: 'gimme-the-airpod', title: 'Gimme the Airpod', image: 'givemetheairpodnowww.jpeg' },
+{ id: 'glass-city', title: 'Glass City', image: 'glasscity.avif' },
+{ id: 'google-snake', title: 'Google Snake', image: 'googlesnake.jpeg' },
+{ id: 'hackertype', title: 'Hacker Type', image: 'fakefakefakefakefake.png' },
+{ id: 'helicopter', title: 'Helicopter', image: 'Helicopter.png' },
+{ id: 'idle-shark', title: 'Idle Shark', image: 'idleshark.jpeg' },
+{ id: 'impossiblequiz', title: 'The Impossible Quiz', image: 'theimpossiblequiz.png' },
+{ id: 'learntofly', title: 'Learn to Fly', image: 'learntofly.jpeg' },
+{ id: 'mario', title: 'Super Mario', image: 'mario.webp' },
+{ id: 'motox3m-pool', title: 'Moto X3M Pool', image: 'motothing.jpeg' },
+{ id: 'motox3m-spooky', title: 'Moto X3M Spooky', image: 'motothing.jpeg' },
+{ id: 'motox3m-winter', title: 'Moto X3M Winter', image: 'motothing.jpeg' },
+{ id: 'papaspizzaria', title: 'Papa’s Pizzeria', image: 'pizzapizza.webp' },
+{ id: 'portalflash', title: 'Portal Flash', image: 'flashversionbooo.jpeg' },
+{ id: 'precision-client', title: 'Precision Client', image: 'precisionclient.png' },
+{ id: 'push-the-square', title: 'Push The Square', image: 'pushthesquare.png' },
+{ id: 'push-your-luck', title: 'Push Your Luck', image: 'pushyourluck.png' },
+{ id: 'rooftop-snipers', title: 'Rooftop Snipers', image: 'rooftop.avif' },
+{ id: 'sm64', title: 'Super Mario 64', image: 'super_mario_64_2.webp' },
+{ id: 'smashkarts', title: 'Smash Karts', image: 'smashkarts.jpeg' },
+{ id: 'smokingbarrels', title: 'Smoking Barrels', image: 'smokinbarrelsgame.jpeg' },
+{ id: 'snowbattle', title: 'Snow Battle', image: 'snowbattle.jpeg' },
+{ id: 'soundboard', title: 'Soundboard', image: '3kh0.png' },
+{ id: 'stealingthediamond', title: 'Stealing the Diamond', image: 'stealingthediamond.avif' },
+{ id: 'stickwar', title: 'Stick War', image: 'stickwar.jpeg' },
+{ id: 'superhot', title: 'Superhot', image: 'superhot.jpeg' },
+{ id: 'tanuki-sunset', title: 'Tanuki Sunset', image: 'TanukiSunset.jpeg' },
+{ id: 'temple-run-2', title: 'Temple Run 2', image: 'templeruntwo.avif' },
+{ id: 'theheist', title: 'The Heist', image: 'HEIST.jpg' },
+{ id: 'there-is-no-game', title: 'There is No Game', image: 'thereisnogame.webp' },
+{ id: 'vex3', title: 'Vex 3', image: 'vex7.webp' },
+{ id: 'vex4', title: 'Vex 4', image: 'vex7.webp' },
+{ id: 'vex5', title: 'Vex 5', image: 'vex7.webp' },
+{ id: 'vex6', title: 'Vex 6', image: 'vex7.webp' },
+{ id: 'webretro-local', title: 'WebRetro Local', image: '3kh0.png' },
+{ id: 'wordle', title: 'wordle', image: 'wordle.webp' },
+{ id: 'tomb-of-the-mask', title: 'Tomb of the Mask', image: 'tombofthemask.png'},
+{ id: 'five-nights-at-freddys', title: 'fnaf', image: 'fnaf.png'},
+{ id: 'five-nights-at-freddys-2', title: 'fnaf 2', image: 'fnaf2.webp'},
+{ id: 'five-nights-at-freddys-3', title: 'fnaf 3', image: 'fnaf3.webp'},
+{ id: 'five-nights-at-freddys-4', title: 'fnaf 4', image: 'fnaf4.jpg'},
+{ id: 'ucn', title: 'UCN', image: 'ucn.jpeg'},
+{ id: 'ps', title: 'fnaf 6', image: 'fnaf6.png'},
+{ id: 'five-nights-at-candys', title: 'fnac', image: 'fnac.png'},
+{ id: '10-minutes-till-dawn', title: '10 minutes till dawn', image: '10minutestilldawn.png'},
+{ id: 'bitlife', title: 'bitlife', image: 'bitlife.webp'},
+{ id: 'block-blast', title: 'Block Blast!', image: 'blockblast.jpg'},
+{ id: 'boxing-random', title: 'boxing random', image: 'boxingrandom.png'},
+{ id: 'buckshot-roulette', title: 'Buckshot Roulette', image: 'buckshot.jpeg'}
+];
+
+let recentGames = JSON.parse(localStorage.getItem('recentGames')) || [];
+
+function playGame(gameId) {
+// Add the game to recent played games
+if (!recentGames.includes(gameId)) {
+if (recentGames.length >= 4) {
+recentGames.pop(); // Remove the oldest game if we already have 4
+}
+recentGames.unshift(gameId); // Add the new game to the front
+localStorage.setItem('recentGames', JSON.stringify(recentGames));
+}
+
+window.location.href = `/${gameId}`;
+}
+
+function recommendGames() {
+const recommendedContainer = document.getElementById('recommendedContainer');
+const noDataMessage = document.getElementById('no-data-message');
+recommendedContainer.innerHTML = ''; // Clear previous recommendations
+noDataMessage.style.display = 'none'; // Hide no data message initially
+
+if (recentGames.length === 0) {
+// Show no data message if there are no recent games
+noDataMessage.style.display = 'block';
+return;
+}
+
+// Recommend games based on the last 4 recently played games
+const recommended = games.filter(game => recentGames.includes(game.id)).slice(0, 4); // Limit to 4
+
+if (recommended.length === 0) {
+noDataMessage.style.display = 'block';
+} else {
+recommended.forEach(game => {
+const gameElement = document.createElement('div');
+gameElement.className = 'game';
+gameElement.onclick = () => playGame(game.id);
+gameElement.innerHTML = `
+<img src="${game.image}" alt="${game.title}">
+<div class="game-title">${game.title}</div>
+`;
+recommendedContainer.appendChild(gameElement);
+});
+}
+}
+
+function loadAllGames() {
+const allGamesContainer = document.getElementById('all-games-container');
+allGamesContainer.innerHTML = ''; // Clear previous games
+games.forEach(game => {
+const gameElement = document.createElement('div');
+gameElement.className = 'game';
+gameElement.onclick = () => playGame(game.id);
+gameElement.innerHTML = `
+<img src="${game.image}" alt="${game.title}">
+<div class="game-title">${game.title}</div>
+`;
+allGamesContainer.appendChild(gameElement);
+});
+}
+
+// Function to filter games based on search input
+function filterGames() {
+const searchInput = document.getElementById('search').value.toLowerCase();
+const gamesContainer = document.querySelectorAll('.game');
+gamesContainer.forEach(game => {
+const title = game.querySelector('.game-title').textContent.toLowerCase();
+game.style.display = title.includes(searchInput) ? '' : 'none';
+});
+}
+
+// Load initial games and recommendations on page load
+document.addEventListener("DOMContentLoaded", function() {
+loadAllGames();
+recommendGames();
+});
+</script>
 </body>
 
 </html>
