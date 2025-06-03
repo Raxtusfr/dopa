@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DOPA</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOPA - Credits</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* General Styles */
         body {
@@ -17,62 +18,53 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            width: 100vw;
-            overflow: hidden;
             margin: 0;
             text-align: center;
             user-select: none;
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark theme */
+        /* Dark Theme Styles */
         .dark-theme {
             background-color: #1a1a1a;
             color: #e0e0e0;
         }
 
-        /* Header styles */
+        /* Header Styles */
         .header {
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
 
         .header h1 {
-            font-size: 3em;
+            font-size: 4.5em;
             color: #ff0000;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
-            animation: fadeIn 1s ease-in forwards;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        /* Credits List Styles */
+        .credits-list {
+            font-size: 1.5em;
+            margin: 20px 0;
         }
 
-        /* Quote styles */
-        .quote {
+        .credits-list h2 {
             font-size: 2em;
-            color: #ff0000;
-            margin: 10px 0;
-            border: 2px solid #ff0000;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgba(20, 20, 20, 0.85);
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 60px;
-            overflow: hidden;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
         }
 
-        /* Buttons container */
+        .credits-item {
+            margin: 5px 0;
+        }
+
+        /* Button Styles */
         .buttons-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .button {
@@ -80,13 +72,12 @@
             color: #ff0000;
             border: 2px solid #ff0000;
             border-radius: 25px;
-            padding: 15px 30px;
-            font-size: 1.5em;
+            padding: 12px 30px;
+            font-size: 1.3em;
             font-weight: bold;
             margin: 10px;
             cursor: pointer;
             transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-            min-width: 150px;
         }
 
         .button:hover {
@@ -95,152 +86,42 @@
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(255, 0, 0, 0.7);
         }
-
-        /* Icons container styles */
-        .icons-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 30px 0;
-        }
-
-        .icon-box {
-            background-color: rgba(20, 20, 20, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-            cursor: pointer;
-        }
-
-        .icon-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 25px rgba(255, 0, 0, 0.5);
-        }
-
-        .icon {
-            width: 64px;
-            height: 64px;
-        }
-
-        .icon-label {
-            margin-top: 10px;
-            font-weight: 500;
-            color: #ff0000;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
-            font-size: 1.2em;
-        }
-
-        /* Announcement styles */
-        .announcement {
-            color: #ff0000;
-            font-size: 1.2em;
-            margin-top: 15px;
-            border: 1px solid #ff0000;
-            padding: 10px;
-            border-radius: 10px;
-            animation: pulse 2s infinite alternate;
-        }
-
-        @keyframes pulse {
-            from { transform: scale(1); }
-            to { transform: scale(1.05); }
-        }
     </style>
 </head>
+
 <body>
     <div class="header">
-        <h1>DOPA</h1>
+        <h1>DOPA - Credits</h1>
     </div>
 
-    <div class="quote" id="quoteDisplay" aria-live="polite">Welcome to DOPA, your gateway to luxury!</div>
+    <div class="credits-list">
+        <h2>Development Team</h2>
+        <div class="credits-item">H (bronomion) - Founder & Lead Developer</div>
+        <div class="credits-item">H (bronomion) - UI/UX Designer</div>
+        <div class="credits-item">Z - Does Announcments</div>
+        <div class="credits-item">Z - OG, made up DOPA</div>
+        
+        <h2>Special Thanks</h2>
+        <div class="credits-item">The Open Source Community</div>
+        <div class="credits-item">Our Supporters</div>
+    </div>
 
-    <div class="icons-container">
-        <div class="icon-box" onclick="window.location.href='/games'" aria-label="Go to Games">
-            <img class="icon" src="https://static-00.iconduck.com/assets.00/console-controller-icon-2048x2048-pmmusn7m.png" alt="Games" />
-            <div class="icon-label">Games</div>
-        </div>
-        <div class="icon-box" onclick="window.location.href='apps'" aria-label="Go to Apps">
-            <img class="icon" src="https://img.icons8.com/ios7/600/FF0000/apple-app-store--v2.png" alt="Apps" />
-            <div class="icon-label">Apps</div>
-        </div>
-        <div class="icon-box" onclick="window.location.href='https://unblocked.my.canva.site/'" aria-label="Go to Exploits">
-            <img class="icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0_6HUhLshuftA_sDchc5pEGqTBPa41EO6Xw&s" alt="Exploits" />
-            <div class="icon-label">Exploits</div>
-        </div>
-        <div class="icon-box" onclick="window.location.href='media'" aria-label="Go to Media">
-            <img class="icon" src="https://i.pinimg.com/736x/ea/8d/11/ea8d11f1ffc6355b8a440106ce61d0f3.jpg" alt="Media" />
-            <div class="icon-label">Media</div>
-        </div>
-        <div class="icon-box" onclick="window.location.href='settings'" aria-label="Go to Settings">
-            <img class="icon" src="https://img.icons8.com/m_rounded/512/FF0000/settings.png" alt="Settings" />
-            <div class="icon-label">Settings</div>
-        </div>
+    <h2>HELLPPLPLPLPLPLPLOL MMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</h2>
     </div>
 
     <div class="buttons-container">
-        <button class="button" onclick="window.location.href='/credits.html'" aria-label="See Credits">Credits</button>
+        <button class="button" onclick="window.location.href='/'" aria-label="Go Back to Home">Back to Home</button>
         <button class="button" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Switch to Light Mode</button>
-        <!-- New Chat Button -->
-        <button class="button" onclick="window.location.href='/chat'" aria-label="Go to Chat">Chat</button>
     </div>
 
-    <p class="announcement">Announcement: I don't I've been busy my good sir.</p>
-
     <script>
-        const quotes = [
-            "yeah, we are STILL working on DOPA.",
-            "This site use to only be HTML until we upgraded",
-            "Ton's of games!",
-            "Totally very educational website...",
-            "website still WIP!",
-            "Gold and black theme",
-            "why aren't you working?",
-            "DOPA FOR LIFE",
-            "I KNOW WERE U LIVE RYAN",
-            "WITHERSPOON",
-            "THE MOST SIGMA SITE IN TOWN",
-            "IM AMD DOPA"
-        ];
-
-        let quoteIndex = 0;
-        let currentQuote = '';
-        let letterIndex = 0;
-        const quoteDisplay = document.getElementById('quoteDisplay');
-
-        function typeQuote() {
-            if (letterIndex < quotes[quoteIndex].length) {
-                currentQuote += quotes[quoteIndex].charAt(letterIndex);
-                quoteDisplay.textContent = currentQuote;
-                letterIndex++;
-                setTimeout(typeQuote, 100);
-            } else {
-                setTimeout(backspaceQuote, 1500);
-            }
-        }
-
-        function backspaceQuote() {
-            if (letterIndex > 0) {
-                currentQuote = currentQuote.slice(0, -1);
-                quoteDisplay.textContent = currentQuote;
-                letterIndex--;
-                setTimeout(backspaceQuote, 50);
-            } else {
-                quoteIndex = (quoteIndex + 1) % quotes.length;
-                setTimeout(typeQuote, 700);
-            }
-        }
-
-        // Start quote animation
-        typeQuote();
-
+        // Theme Toggle Function
         function toggleTheme() {
             document.body.classList.toggle('dark-theme');
-            const btn = document.getElementById('themeToggle');
-            btn.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+            const button = document.getElementById('themeToggle');
+            button.textContent = document.body.classList.contains('dark-theme') ? 'Switch to Dark Mode' : 'Switch to Light Mode';
         }
     </script>
 </body>
+
 </html>
