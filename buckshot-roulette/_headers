@@ -1,5 +1,5 @@
-/buckshot-roulette/index.pck
+/index.pck
   Content-Type: application/octet-stream
 
-/buckshot-roulette/index.wasm
+/index.wasm
   Content-Type: application/wasm
