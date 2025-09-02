@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Update Log</title>
+  <style>
+    /* === Global Reset === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #000;
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* === Background Particles === */
+    #particles {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: red;
+      border-radius: 50%;
+      opacity: 0.6;
+      box-shadow: 0 0 10px red, 0 0 20px red;
+      animation: float 15s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0.8); }
+      to { transform: translateY(-10vh) scale(1.2); }
+    }
+
+    /* === Header === */
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff2d2d;
+      text-shadow: 0 0 10px #ff2d2d, 0 0 25px #ff2d2d;
+      letter-spacing: 2px;
+    }
+
+    /* === Update Log Container === */
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 0 auto 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    /* === Update Cards === */
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 45, 45, 0.4);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      border: 1px solid rgba(255, 45, 45, 0.8);
+      box-shadow: 0 0 20px rgba(255, 45, 45, 0.6), 0 0 40px rgba(255, 45, 45, 0.4);
+    }
+
+    .card h2 {
+      font-size: 1.8rem;
+      color: #ff4d4d;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #ff2d2d;
+    }
+
+    .card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    /* === Expandable Content === */
+    .details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .card.active .details {
+      max-height: 500px;
+      margin-top: 10px;
+    }
+
+    /* === Scrollbar Styling === */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #111;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ff2d2d;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #ff2d2d;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff4d4d;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles"></div>
+
+  <header>
+    <h1>🚀 Update Log</h1>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Update 1.2 - Performance Boost</h2>
+      <p>Major optimizations and bug fixes.</p>
+      <div class="details">
+        <ul>
+          <li>⚡ Faster loading times</li>
+          <li>🐛 Fixed minor crashes</li>
+          <li>🎨 Improved UI responsiveness</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Update 1.1 - Visual Overhaul</h2>
+      <p>New design and animations for a sleek look.</p>
+      <div class="details">
+        <ul>
+          <li>✨ Glassmorphism design</li>
+          <li>🎆 Smooth hover animations</li>
+          <li>🖼 New background visuals</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Update 1.0 - Initial Release</h2>
+      <p>Our very first launch 🎉</p>
+      <div class="details">
+        <ul>
+          <li>📜 Basic update log</li>
+          <li>📦 Core functionality</li>
+          <li>🎯 Focused on stability</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // === Expandable Cards ===
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => {
+        card.classList.toggle("active");
+      });
+    });
+
+    // === Particles ===
+    const particlesContainer = document.getElementById("particles");
+    const particleCount = 40;
+    for (let i = 0; i < particleCount; i++) {
+      const p = document.createElement("div");
+      p.classList.add("particle");
+      p.style.left = Math.random() * 100 + "vw";
+      p.style.top = Math.random() * 100 + "vh";
+      p.style.animationDuration = 10 + Math.random() * 20 + "s";
+      p.style.opacity = 0.3 + Math.random() * 0.7;
+      particlesContainer.appendChild(p);
+    }
+  </script>
+</body>
+</html>
