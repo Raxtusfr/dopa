@@ -1,5 +1,7 @@
 /index.pck
   Content-Type: application/octet-stream
+  Cache-Control: public, max-age=31536000, immutable
 
 /index.wasm
   Content-Type: application/wasm
+  Cache-Control: public, max-age=31536000, immutable
