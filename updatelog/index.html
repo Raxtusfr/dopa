@@ -14,9 +14,6 @@
       --accent: #ff0000;
       --accent-2: #b30000;
       --stroke: #1a1a1a;
-      --good: #00ff88;
-      --warn: #ffcc00;
-      --bad: #ff4444;
       --radius: 16px;
       --shadow: 0 8px 20px rgba(255, 0, 0, .35);
     }
@@ -38,7 +35,6 @@
 
     header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
     }
@@ -78,15 +74,6 @@
     }
     input::placeholder { color: #555; }
     button:hover, select:hover, input:focus { border-color: #ff3333; box-shadow: 0 0 8px #ff0000; }
-
-    .toggle {
-      display: inline-flex; align-items: center; gap: 8px;
-      border-radius: 999px; padding: 8px 10px;
-      cursor: pointer; user-select: none;
-      background: var(--panel);
-      border: 1px solid var(--accent);
-      color: var(--accent);
-    }
 
     .badge {
       display: inline-flex; align-items: center; gap: 6px;
@@ -174,7 +161,8 @@
 
   <script>
     const updates = [
-      { version: "1.0.0", date: "2025-09-02", title: "Initial release", tags: ["Added"], changes: ["Update Log Released","Buckshot Roulette fixed"] }
+      { version: "1.0.0", date: "2025-09-02", title: "Initial release", tags: ["Added", "Fixed"], changes: ["Update Log Released","Buckshot Roulette fixed"] },
+      { version: "1.1.0", date: "2025-09-06", title: "Osu update!", tags: ["Added"], changes: ["Osu mania V3 game added","silly easter egg"] }
     ];
 
     const listEl = document.getElementById('list');
@@ -183,8 +171,6 @@
     const tagFilterEl = document.getElementById('tagFilter');
     const sortEl = document.getElementById('sort');
     const expandAllBtn = document.getElementById('expandAll');
-
-    const BADGE_CLASS = { Added: 'added', Changed: 'changed', Fixed: 'fixed' };
 
     function normalize(str){ return (str||'').toLowerCase(); }
 
