@@ -1,1 +1,166 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOPA - Partners</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* General Styles */
+    body {
+      background-color: #000;
+      color: #ff0000;
+      font-family: 'Raleway', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      user-select: none;
+      padding: 40px 20px;
+    }
+
+    /* Header Styles */
+    .header {
+      margin-bottom: 50px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .header h1 {
+      font-size: 4.5em;
+      color: #ff0000;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-shadow: 0 0 25px rgba(255, 0, 0, 0.9), 0 0 50px rgba(255, 0, 0, 0.6);
+    }
+
+    /* Credits List Styles */
+    .credits-list {
+      font-size: 1.5em;
+      margin: 20px 0;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .credits-list h2 {
+      font-size: 2.5em;
+      margin: 40px 0 20px;
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+      border-bottom: 2px solid #ff0000;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .credits-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 15px 0;
+      padding: 15px 25px;
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .credits-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+    }
+
+    .credits-item img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 20px;
+      border: 2px solid #ff0000;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+      object-fit: cover;
+    }
+
+    /* Button Styles */
+    .buttons-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .button {
+      background-color: #000;
+      color: #ff0000;
+      border: 2px solid #ff0000;
+      border-radius: 30px;
+      padding: 14px 40px;
+      font-size: 1.4em;
+      font-weight: bold;
+      margin: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .button:hover {
+      background-color: #ff0000;
+      color: #000;
+      transform: scale(1.08);
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.9);
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>DOPA - Partners</h1>
+  </div>
+
+  <div class="credits-list">
+    <h2>Top Tier Partners</h2>
+
+    <div class="credits-item">
+      <img src="G.png" alt="G">
+      <span>G (John G Turkey) - Founder of Turkey</span>
+    </div>
+    <div class="buttons-container">
+    <button class="button" onclick="window.location.href='turkeyforever.my.canva.site'" aria-label="Go To Turkey">Turkey</button>
+  </div>
+    <div class="credits-item">
+      <img src="Solami.jpg" alt="Z">
+      <span>Z (not zech) Owner of Solami</span>
+    </div>
+    <div class="buttons-container">
+    <button class="button" onclick="window.location.href='solami.my.canva.site'" aria-label="Go to Solami">Solami</button>
+  <div class="buttons-container">
+    <button class="button" onclick="window.location.href='/'" aria-label="Go Back to Home">Back to Home</button>
+  </div>
+
+  <script>
+    // Theme Toggle Function
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+      const button = document.getElementById('themeToggle');
+      button.textContent = document.body.classList.contains('dark-theme') ?
+        'Switch to Dark Mode' : 'Switch to Light Mode';
+    }
+  </script>
+</body>
+
+</html>
