@@ -1,0 +1,161 @@
+:root {
+    --main-purple: #a259ff;
+    --elec-purple: #de00ff;
+    --dark-purple: #1a0826;
+}
+
+body {
+    background: radial-gradient(ellipse at top left, var(--dark-purple) 0%, #000 100%);
+    color: var(--main-purple);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+/* HEADER */
+.header h1 {
+    color: var(--elec-purple);
+    text-shadow:
+        0 0 12px var(--elec-purple),
+        0 0 24px var(--main-purple),
+        0 2px 8px #000;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    animation: electric-flicker 2.5s infinite alternate;
+}
+@keyframes electric-flicker {
+    0%,100% { text-shadow: 0 0 12px var(--elec-purple), 0 0 24px var(--main-purple), 0 2px 8px #000;}
+    45% { text-shadow: 0 0 16px #fff, 0 0 40px var(--elec-purple);}
+    60% { text-shadow: 0 0 36px var(--main-purple), 0 0 60px var(--elec-purple);}
+}
+
+/* QUOTE BOX */
+.quote {
+    color: var(--main-purple);
+    border: 2.5px solid var(--elec-purple);
+    background: rgba(42, 7, 60, 0.93);
+    border-radius: 12px;
+    font-size: 2em;
+    margin: 10px 0;
+    padding: 20px;
+    box-shadow: 0 0 24px 6px var(--main-purple), 0 0 40px 0 var(--elec-purple);
+    position: relative;
+    z-index: 1;
+    overflow: visible;
+}
+
+/* ICONS */
+.icon-box {
+    background: rgba(45, 0, 70, 0.93);
+    border: 2px solid var(--main-purple);
+    border-radius: 12px;
+    box-shadow: 0 0 20px 4px var(--main-purple), 0 0 36px 6px var(--elec-purple);
+    transition: box-shadow 0.2s, transform 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+.icon-box:hover {
+    box-shadow: 0 0 40px 12px var(--elec-purple), 0 0 60px 0 var(--main-purple);
+    transform: scale(1.05);
+}
+.icon-label {
+    color: var(--elec-purple);
+    text-shadow: 0 0 12px var(--elec-purple);
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* BUTTONS - PURPLE ELECTRIC SPARK EFFECT */
+.button, button, input[type="button"], input[type="submit"] {
+    background: #34005a;
+    color: #fff;
+    border: 2.5px solid var(--elec-purple);
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px;
+    min-width: 120px;
+    position: relative;
+    cursor: pointer;
+    box-shadow:
+        0 0 20px 2px var(--main-purple),
+        0 0 10px 2px var(--elec-purple);
+    transition: background 0.3s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+    overflow: visible;
+}
+.button::after, button::after, input[type="button"]::after, input[type="submit"]::after {
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    inset: -6px;
+    border-radius: 30px;
+    z-index: 1;
+    background: conic-gradient(
+        from 0deg,
+        var(--elec-purple) 0deg 10deg,
+        transparent 10deg 30deg,
+        #fff 30deg 32deg,
+        transparent 32deg 80deg,
+        var(--main-purple) 80deg 90deg,
+        transparent 90deg 180deg,
+        var(--elec-purple) 180deg 190deg,
+        transparent 190deg 360deg
+    );
+    opacity: 0.7;
+    filter: blur(6px) brightness(1.4);
+    animation: spark-spin 1.2s linear infinite, spark-flicker 0.18s infinite steps(2);
+}
+@keyframes spark-spin {
+    100% { transform: rotate(360deg);}
+}
+@keyframes spark-flicker {
+    0% { opacity: 0.7; filter: blur(6px) brightness(1.2);}
+    100% { opacity: 1; filter: blur(10px) brightness(2);}
+}
+.button:hover, .button:focus,
+button:hover, button:focus,
+input[type="button"]:hover, input[type="button"]:focus,
+input[type="submit"]:hover, input[type="submit"]:focus {
+    background: #6d2aff;
+    color: #fff;
+    box-shadow: 0 0 40px 10px var(--elec-purple), 0 0 20px 2px var(--main-purple), 0 0 16px 2px #fff;
+    transform: scale(1.05) rotate(-1.5deg);
+}
+.button:active, button:active, input[type="button"]:active, input[type="submit"]:active {
+    background: #c627ff;
+}
+
+/* ANNOUNCEMENT */
+.announcement {
+    color: var(--main-purple);
+    border: 2px solid var(--elec-purple);
+    background: rgba(60, 0, 120, 0.55);
+    border-radius: 12px;
+    box-shadow: 0 0 12px 1px var(--main-purple), 0 0 18px 2px var(--elec-purple);
+    margin-top: 15px;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+/* DARK THEME OVERRIDES */
+.dark-theme {
+    background: radial-gradient(ellipse at top left, #250a40 0%, #17111d 100%);
+    color: var(--elec-purple);
+}
+.dark-theme .header h1,
+.dark-theme .icon-label,
+.dark-theme .announcement,
+.dark-theme .quote {
+    color: var(--elec-purple);
+    border-color: var(--main-purple);
+}
+.dark-theme .button, .dark-theme button, .dark-theme input[type="button"], .dark-theme input[type="submit"] {
+    background: #26034a;
+    color: var(--main-purple);
+    border-color: var(--main-purple);
+}
+.dark-theme .button:hover, .dark-theme button:hover, .dark-theme input[type="button"]:hover, .dark-theme input[type="submit"]:hover {
+    background: var(--main-purple);
+    color: var(--elec-purple);
+}
