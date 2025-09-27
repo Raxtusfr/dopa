@@ -3,519 +3,251 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <title>DOPA - Games</title>
 <style>
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #000;
-  color: #800080;
-  user-select: none;
-  margin: 0;
-  min-height: 100vh;
-}
-h1 {
-  text-align: center;
-  margin: 32px 0 16px 0;
-  color: #800080;
-}
-.games-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.games-container a {
-  display: block;
-  background: #181818;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(128,0,128,0.7);
-  text-decoration: none;
-  transition: transform 0.3s;
-  overflow: hidden;
-}
-.games-container a:hover {
-  transform: scale(1.05);
-}
-.games-container img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-  display: block;
-}
-.game-title {
-  text-align: center;
-  padding: 10px;
-  color: #800080;
-  background: rgba(255,255,255,0.1);
-  border-radius: 0 0 10px 10px;
-  font-weight: bold;
-}
-@media (max-width: 600px) {
-  .games-container {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    padding: 8px;
-  }
-  .games-container img {
-    height: 70px;
-  }
-}
+/* -- your original CSS, unchanged -- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Arial', sans-serif; background-color: #000; color: #800080; user-select: none; overflow-y: auto; animation: fadeIn 0.5s forwards; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+header { width: 100%; padding: 15px 30px; background: rgba(20, 20, 20, 0.9); display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(128, 0, 128, 0.7); position: sticky; top: 0; z-index: 10; }
+header h1 { font-size: 2.5rem; color: #800080; font-family: 'Arial', sans-serif; font-weight: bold; letter-spacing: 1px; }
+.search-container { flex-grow: 1; max-width: 400px; margin-right: 15px; }
+.search-container input { width: 100%; padding: 10px; border: 2px solid #800080; background-color: #222; color: #800080; border-radius: 5px; font-size: 1.1rem; outline: none; }
+.btn { background-color: #000; color: #800080; border: 2px solid #800080; border-radius: 5px; padding: 10px 20px; cursor: pointer; font-size: 1rem; font-weight: bold; box-shadow: 0 2px 5px rgba(128, 0, 128, 0.7); transition: background 0.3s, color 0.3s, transform 0.3s; }
+.btn:hover { background-color: #800080; color: #000; transform: scale(1.05); }
+.main-content { width: 90%; margin-top: 20px; background: rgba(255,255,255,0.1); border-radius: 10px; padding: 20px; box-shadow: 0 2px 10px rgba(128, 0, 128, 0.7);}
+.tagline { font-size: 1.5rem; text-align: center; margin-bottom: 20px; font-weight: bold; color: #800080;}
+.section { margin: 20px 0;}
+.section h2 { color: #800080; border-bottom: 2px solid #800080; padding-bottom: 5px; font-size: 2rem;}
+.games-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px;}
+.game { position: relative; width: 100%; cursor: pointer; border-radius: 10px; transition: transform 0.3s; overflow: hidden; box-shadow: 0 2px 5px rgba(128, 0, 128, 0.7); background: #181818;}
+.game img { width: 100%; border-radius: 10px 10px 0 0; height: 100px; object-fit: cover;}
+.game:hover { transform: scale(1.05);}
+.game-title { text-align: center; padding: 10px; background: rgba(255,255,255,0.1); color: #800080; border-radius: 0 0 10px 10px; font-weight: bold;}
+footer { width: 100%; padding: 20px; background-color: rgba(20,20,20,0.9); text-align: center; color: #800080; border-top: 1px solid #800080; box-shadow: 0 -2px 10px rgba(128, 0, 128, 0.7); margin-top: 40px;}
+.no-data { color: #555; font-style: italic; text-align: center; margin-top: 20px;}
 </style>
 </head>
 <body>
-<h1>DOPA Games</h1>
-<div class="games-container">
-  <!-- JUST COPY/PASTE TO ADD GAMES! -->
-  <a href="games/cookieclicker/">
-    <img src="cookie-clicker.png" alt="Cookie Clicker">
-    <div class="game-title">Cookie Clicker</div>
-  </a>
-  <a href="games/2048/">
-    <img src="2048_logo.png" alt="2048">
-    <div class="game-title">2048</div>
-  </a>
-  <a href="games/flappybird/">
-    <img src="Flappy_Bird_icon.png" alt="Flappy Bird">
-    <div class="game-title">Flappy Bird</div>
-  </a>
-  <a href="games/chrome-dino/">
-    <img src="Social_dino_with_hat.gif" alt="Chrome Dino">
-    <div class="game-title">Chrome Dino</div>
-  </a>
-  <a href="games/penguino/">
-    <img src="3002414_nescartridges_penguino.png" alt="Penguino">
-    <div class="game-title">Penguino</div>
-  </a>
-  <a href="games/backrooms/">
-    <img src="backroomsgificon.gif" alt="Backrooms">
-    <div class="game-title">Backrooms</div>
-  </a>
-  <a href="games/retro-bowl/">
-    <img src="Retro_Bowl_cover.png" alt="Retro Bowl">
-    <div class="game-title">Retro Bowl</div>
-  </a>
-  <a href="games/worlds-hardest-game/">
-    <img src="HardestGameIcon.png" alt="World's Hardest Game">
-    <div class="game-title">World's Hardest Game</div>
-  </a>
-  <a href="games/worlds-hardest-game-2/">
-    <img src="HardestGameIcon.png" alt="World's Hardest Game 2">
-    <div class="game-title">World's Hardest Game 2</div>
-  </a>
-  <a href="games/you-are-bezos/">
-    <img src="JeffBezosYes.png" alt="You Are Bezos">
-    <div class="game-title">You Are Bezos</div>
-  </a>
-  <a href="games/just-one-boss/">
-    <img src="bossicon.png" alt="Just One Boss">
-    <div class="game-title">Just One Boss</div>
-  </a>
-  <a href="games/DogeMiner/">
-    <img src="DogeMiningicon.png" alt="Doge Miner">
-    <div class="game-title">Doge Miner</div>
-  </a>
-  <a href="games/1/">
-    <img src="1iconthing.png" alt="1">
-    <div class="game-title">1</div>
-  </a>
-  <a href="games/among-us/">
-    <img src="red842.png" alt="Among Us">
-    <div class="game-title">Among Us</div>
-  </a>
-  <a href="games/sandbox/">
-    <img src="sandboxicon.png" alt="Sandbox">
-    <div class="game-title">Sandbox</div>
-  </a>
-  <a href="games/championarcher/">
-    <img src="championarcher.png" alt="Champion Archer">
-    <div class="game-title">Champion Archer</div>
-  </a>
-  <a href="games/interactivebuddy/">
-    <img src="interactivebuddy.png" alt="Interactive Buddy">
-    <div class="game-title">Interactive Buddy</div>
-  </a>
-  <a href="games/slope/">
-    <img src="slopeicon.png" alt="Slope">
-    <div class="game-title">Slope</div>
-  </a>
-  <a href="games/getaway-shootout/">
-    <img src="getaway.jpg" alt="Getaway Shootout">
-    <div class="game-title">Getaway Shootout</div>
-  </a>
-  <a href="games/tunnel-rush/">
-    <img src="tunnel.jpg" alt="Tunnel Rush">
-    <div class="game-title">Tunnel Rush</div>
-  </a>
-  <a href="games/paperio2/">
-    <img src="paperioicon.jpeg" alt="Paper.io 2">
-    <div class="game-title">Paper.io 2</div>
-  </a>
-  <a href="games/a-dance-of-fire-and-ice/">
-    <img src="adofai.png" alt="A Dance of Fire and Ice">
-    <div class="game-title">A Dance of Fire and Ice</div>
-  </a>
-  <a href="games/alienhominid/">
-    <img src="alienhominid.webp" alt="Alien Hominid">
-    <div class="game-title">Alien Hominid</div>
-  </a>
-  <a href="games/wolf3d/">
-    <img src="wolfenstein.jpeg" alt="Wolfenstein">
-    <div class="game-title">Wolfenstein</div>
-  </a>
-  <a href="games/hexgl/">
-    <img src="hexgl.png" alt="HexGL">
-    <div class="game-title">HexGL</div>
-  </a>
-  <a href="games/achievementunlocked/">
-    <img src="achievementunlocked.png" alt="Achievement Unlocked">
-    <div class="game-title">Achievement Unlocked</div>
-  </a>
-  <a href="games/adrenalinechallenge/">
-    <img src="adrenalinechallenge.jpeg" alt="Adrenaline Challenge">
-    <div class="game-title">Adrenaline Challenge</div>
-  </a>
-  <a href="games/basketball-stars/">
-    <img src="basketballstars.jpeg" alt="Basketball Stars">
-    <div class="game-title">Basketball Stars</div>
-  </a>
-  <a href="games/battleforgondor/">
-    <img src="battleofgondor.jpeg" alt="Battle for Gondor">
-    <div class="game-title">Battle for Gondor</div>
-  </a>
-  <a href="games/bigredbutton/">
-    <img src="big-red-button.jpg" alt="Big Red Button">
-    <div class="game-title">Big Red Button</div>
-  </a>
-  <a href="games/blackknight/">
-    <img src="blackknight.jpg" alt="Black Knight">
-    <div class="game-title">Black Knight</div>
-  </a>
-  <a href="games/bloonstd/">
-    <img src="bloonstd.jpeg" alt="Bloons Tower Defense">
-    <div class="game-title">Bloons Tower Defense</div>
-  </a>
-  <a href="games/bloonstd2/">
-    <img src="bloonstd.jpeg" alt="Bloons Tower Defense 2">
-    <div class="game-title">Bloons Tower Defense 2</div>
-  </a>
-  <a href="games/bloxors/">
-    <img src="bloxorz.jpeg" alt="Bloxors">
-    <div class="game-title">Bloxors</div>
-  </a>
-  <a href="games/btts/">
-    <img src="idkistolethis.png" alt="BTTS">
-    <div class="game-title">BTTS</div>
-  </a>
-  <a href="games/cannon-basketball-4/">
-    <img src="cannonbasketball4.jpeg" alt="Cannon Basketball 4">
-    <div class="game-title">Cannon Basketball 4</div>
-  </a>
-  <a href="games/cell-machine/">
-    <img src="cellmachine.jpeg" alt="Cell Machine">
-    <div class="game-title">Cell Machine</div>
-  </a>
-  <a href="games/connect3/">
-    <img src="yeayhhhdhhd.png" alt="Connect 3">
-    <div class="game-title">Connect 3</div>
-  </a>
-  <a href="games/craftmine/">
-    <img src="craftmine.jpeg" alt="Craft Mine">
-    <div class="game-title">Craft Mine</div>
-  </a>
-  <a href="games/creativekillchamber/">
-    <img src="creative.jpeg" alt="Creative Kill Chamber">
-    <div class="game-title">Creative Kill Chamber</div>
-  </a>
-  <a href="games/csgo-clicker/">
-    <img src="csgoclicker.png" alt="CS:GO Clicker">
-    <div class="game-title">CS:GO Clicker</div>
-  </a>
-  <a href="games/ctr-holiday/">
-    <img src="cutetherope.png" alt="CTR Holiday">
-    <div class="game-title">CTR Holiday</div>
-  </a>
-  <a href="games/ctr-tr/">
-    <img src="cutetherope.png" alt="CTR TR">
-    <div class="game-title">CTR TR</div>
-  </a>
-  <a href="games/ctr/">
-    <img src="cutetherope.png" alt="CTR">
-    <div class="game-title">CTR</div>
-  </a>
-  <a href="games/cubefield/">
-    <img src="cubefield.jpeg" alt="Cube Field">
-    <div class="game-title">Cube Field</div>
-  </a>
-  <a href="games/cupcake2048/">
-    <img src="cupcake2048.png" alt="Cupcake 2048">
-    <div class="game-title">Cupcake 2048</div>
-  </a>
-  <a href="games/deal-or-no-deal/">
-    <img src="dealornodealsir.jpg" alt="Deal or No Deal">
-    <div class="game-title">Deal or No Deal</div>
-  </a>
-  <a href="games/death-run-3d/">
-    <img src="deathrun3d.png" alt="Death Run 3D">
-    <div class="game-title">Death Run 3D</div>
-  </a>
-  <a href="games/defend-the-tank/">
-    <img src="defendthetank.jpeg" alt="Defend the Tank">
-    <div class="game-title">Defend the Tank</div>
-  </a>
-  <a href="games/doge2048/">
-    <img src="doge2048.gif" alt="Doge 2048">
-    <div class="game-title">Doge 2048</div>
-  </a>
-  <a href="games/doodle-jump/">
-    <img src="doodlejump.jpg" alt="Doodle Jump">
-    <div class="game-title">Doodle Jump</div>
-  </a>
-  <a href="games/doublewires/">
-    <img src="DoubleWires.png" alt="Double Wires">
-    <div class="game-title">Double Wires</div>
-  </a>
-  <a href="games/draw-the-hill/">
-    <img src="drawthehill.jpg" alt="Draw the Hill">
-    <div class="game-title">Draw the Hill</div>
-  </a>
-  <a href="games/ducklife1/">
-    <img src="ducklife.webp" alt="Duck Life 1">
-    <div class="game-title">Duck Life 1</div>
-  </a>
-  <a href="games/ducklife2/">
-    <img src="ducklife.webp" alt="Duck Life 2">
-    <div class="game-title">Duck Life 2</div>
-  </a>
-  <a href="games/ducklife3/">
-    <img src="ducklife.webp" alt="Duck Life 3">
-    <div class="game-title">Duck Life 3</div>
-  </a>
-  <a href="games/edgenotfound/">
-    <img src="EdgeNotFound.jpeg" alt="Edge Not Found">
-    <div class="game-title">Edge Not Found</div>
-  </a>
-  <a href="games/evil-glitch/">
-    <img src="evilglitch.jpg" alt="Evil Glitch">
-    <div class="game-title">Evil Glitch</div>
-  </a>
-  <a href="games/exo/">
-    <img src="Exo.jpg" alt="Exo">
-    <div class="game-title">Exo</div>
-  </a>
-  <a href="games/game-inside/">
-    <img src="gameinsideagameinsideagameinsiyeahyougetit.png" alt="Game Inside">
-    <div class="game-title">Game Inside</div>
-  </a>
-  <a href="games/geodash/">
-    <img src="gd.png" alt="Geo Dash">
-    <div class="game-title">Geo Dash</div>
-  </a>
-  <a href="games/gimme-the-airpod/">
-    <img src="givemetheairpodnowww.jpeg" alt="Gimme the Airpod">
-    <div class="game-title">Gimme the Airpod</div>
-  </a>
-  <a href="games/glass-city/">
-    <img src="glasscity.avif" alt="Glass City">
-    <div class="game-title">Glass City</div>
-  </a>
-  <a href="games/google-snake/">
-    <img src="googlesnake.jpeg" alt="Google Snake">
-    <div class="game-title">Google Snake</div>
-  </a>
-  <a href="games/hackertype/">
-    <img src="fakefakefakefakefake.png" alt="Hacker Type">
-    <div class="game-title">Hacker Type</div>
-  </a>
-  <a href="games/helicopter/">
-    <img src="Helicopter.png" alt="Helicopter">
-    <div class="game-title">Helicopter</div>
-  </a>
-  <a href="games/idle-shark/">
-    <img src="idleshark.jpeg" alt="Idle Shark">
-    <div class="game-title">Idle Shark</div>
-  </a>
-  <a href="games/impossiblequiz/">
-    <img src="theimpossiblequiz.png" alt="The Impossible Quiz">
-    <div class="game-title">The Impossible Quiz</div>
-  </a>
-  <a href="games/learntofly/">
-    <img src="learntofly.jpeg" alt="Learn to Fly">
-    <div class="game-title">Learn to Fly</div>
-  </a>
-  <a href="games/mario/">
-    <img src="mario.webp" alt="Super Mario">
-    <div class="game-title">Super Mario</div>
-  </a>
-  <a href="games/motox3m-pool/">
-    <img src="motothing.jpeg" alt="Moto X3M Pool">
-    <div class="game-title">Moto X3M Pool</div>
-  </a>
-  <a href="games/motox3m-spooky/">
-    <img src="motothing.jpeg" alt="Moto X3M Spooky">
-    <div class="game-title">Moto X3M Spooky</div>
-  </a>
-  <a href="games/motox3m-winter/">
-    <img src="motothing.jpeg" alt="Moto X3M Winter">
-    <div class="game-title">Moto X3M Winter</div>
-  </a>
-  <a href="games/papaspizzaria/">
-    <img src="pizzapizza.webp" alt="Papa’s Pizzeria">
-    <div class="game-title">Papa’s Pizzeria</div>
-  </a>
-  <a href="games/portalflash/">
-    <img src="flashversionbooo.jpeg" alt="Portal Flash">
-    <div class="game-title">Portal Flash</div>
-  </a>
-  <a href="games/precision-client/">
-    <img src="precisionclient.png" alt="Precision Client">
-    <div class="game-title">Precision Client</div>
-  </a>
-  <a href="games/push-the-square/">
-    <img src="pushthesquare.png" alt="Push The Square">
-    <div class="game-title">Push The Square</div>
-  </a>
-  <a href="games/push-your-luck/">
-    <img src="pushyourluck.png" alt="Push Your Luck">
-    <div class="game-title">Push Your Luck</div>
-  </a>
-  <a href="games/rooftop-snipers/">
-    <img src="rooftop.avif" alt="Rooftop Snipers">
-    <div class="game-title">Rooftop Snipers</div>
-  </a>
-  <a href="games/sm64/">
-    <img src="super_mario_64_2.webp" alt="Super Mario 64">
-    <div class="game-title">Super Mario 64</div>
-  </a>
-  <a href="games/smashkarts/">
-    <img src="smashkarts.jpeg" alt="Smash Karts">
-    <div class="game-title">Smash Karts</div>
-  </a>
-  <a href="games/smokingbarrels/">
-    <img src="smokinbarrelsgame.jpeg" alt="Smoking Barrels">
-    <div class="game-title">Smoking Barrels</div>
-  </a>
-  <a href="games/snowbattle/">
-    <img src="snowbattle.jpeg" alt="Snow Battle">
-    <div class="game-title">Snow Battle</div>
-  </a>
-  <a href="games/soundboard/">
-    <img src="3kh0.png" alt="Soundboard">
-    <div class="game-title">Soundboard</div>
-  </a>
-  <a href="games/stealingthediamond/">
-    <img src="stealingthediamond.avif" alt="Stealing the Diamond">
-    <div class="game-title">Stealing the Diamond</div>
-  </a>
-  <a href="games/stickwar/">
-    <img src="stickwar.jpeg" alt="Stick War">
-    <div class="game-title">Stick War</div>
-  </a>
-  <a href="games/superhot/">
-    <img src="superhot.jpeg" alt="Superhot">
-    <div class="game-title">Superhot</div>
-  </a>
-  <a href="games/tanuki-sunset/">
-    <img src="TanukiSunset.jpeg" alt="Tanuki Sunset">
-    <div class="game-title">Tanuki Sunset</div>
-  </a>
-  <a href="games/temple-run-2/">
-    <img src="templeruntwo.avif" alt="Temple Run 2">
-    <div class="game-title">Temple Run 2</div>
-  </a>
-  <a href="games/theheist/">
-    <img src="HEIST.jpg" alt="The Heist">
-    <div class="game-title">The Heist</div>
-  </a>
-  <a href="games/there-is-no-game/">
-    <img src="thereisnogame.webp" alt="There is No Game">
-    <div class="game-title">There is No Game</div>
-  </a>
-  <a href="games/vex3/">
-    <img src="vex7.webp" alt="Vex 3">
-    <div class="game-title">Vex 3</div>
-  </a>
-  <a href="games/vex4/">
-    <img src="vex7.webp" alt="Vex 4">
-    <div class="game-title">Vex 4</div>
-  </a>
-  <a href="games/vex5/">
-    <img src="vex7.webp" alt="Vex 5">
-    <div class="game-title">Vex 5</div>
-  </a>
-  <a href="games/vex6/">
-    <img src="vex7.webp" alt="Vex 6">
-    <div class="game-title">Vex 6</div>
-  </a>
-  <a href="games/webretro-local/">
-    <img src="3kh0.png" alt="WebRetro Local">
-    <div class="game-title">WebRetro Local</div>
-  </a>
-  <a href="games/wordle/">
-    <img src="wordle.webp" alt="Wordle">
-    <div class="game-title">Wordle</div>
-  </a>
-  <a href="games/tomb-of-the-mask/">
-    <img src="tombofthemask.png" alt="Tomb of the Mask">
-    <div class="game-title">Tomb of the Mask</div>
-  </a>
-  <a href="games/five-nights-at-freddys/">
-    <img src="fnaf.png" alt="FNAF">
-    <div class="game-title">FNAF</div>
-  </a>
-  <a href="games/five-nights-at-freddys-2/">
-    <img src="fnaf2.webp" alt="FNAF 2">
-    <div class="game-title">FNAF 2</div>
-  </a>
-  <a href="games/five-nights-at-freddys-3/">
-    <img src="fnaf3.webp" alt="FNAF 3">
-    <div class="game-title">FNAF 3</div>
-  </a>
-  <a href="games/five-nights-at-freddys-4/">
-    <img src="fnaf4.jpg" alt="FNAF 4">
-    <div class="game-title">FNAF 4</div>
-  </a>
-  <a href="games/ucn/">
-    <img src="ucn.jpeg" alt="UCN">
-    <div class="game-title">UCN</div>
-  </a>
-  <a href="games/ps/">
-    <img src="fnaf6.png" alt="FNAF 6">
-    <div class="game-title">FNAF 6</div>
-  </a>
-  <a href="games/five-nights-at-candys/">
-    <img src="fnac.png" alt="FNAC">
-    <div class="game-title">FNAC</div>
-  </a>
-  <a href="games/10-minutes-till-dawn/">
-    <img src="10minutestilldawn.png" alt="10 Minutes Till Dawn">
-    <div class="game-title">10 Minutes Till Dawn</div>
-  </a>
-  <a href="games/bitlife/">
-    <img src="bitlife.webp" alt="BitLife">
-    <div class="game-title">BitLife</div>
-  </a>
-  <a href="games/block-blast/">
-    <img src="blockblast.jpg" alt="Block Blast!">
-    <div class="game-title">Block Blast!</div>
-  </a>
-  <a href="games/boxing-random/">
-    <img src="boxingrandom.png" alt="Boxing Random">
-    <div class="game-title">Boxing Random</div>
-  </a>
-  <a href="games/buckshot-roulette/">
-    <img src="buckshot.jpeg" alt="Buckshot Roulette">
-    <div class="game-title">Buckshot Roulette</div>
-  </a>
-  <a href="games/osu/">
-    <img src="Osu!_logo_2024.png" alt="Osu Mania V3">
-    <div class="game-title">Osu Mania V3</div>
-  </a>
-  <a href="games/a-shedletsky-pov/">
-    <img src="ashedletskypov.png" alt="A Shedletsky POV">
-    <div class="game-title">A Shedletsky POV</div>
-  </a>
+<header>
+  <h1>DOPA</h1>
+  <div class="search-container">
+    <input type="text" id="search" oninput="renderAllGames()" placeholder="Search for games...">
+  </div>
+  <button class="btn" onclick="window.location.href='/'">Home</button>
+</header>
+
+<div class="main-content">
+  <div class="tagline">“Using Universal's Game Engine”</div>
+  <div class="section" id="most-popular">
+    <h2>Most Popular</h2>
+    <div class="games-container" id="popular-games-container"></div>
+  </div>
+  <div class="section" id="all-games">
+    <h2>All Games</h2>
+    <div class="games-container" id="all-games-container"></div>
+  </div>
+  <div class="section" id="recommended-games">
+    <h2>Games you've Played Recently</h2>
+    <div class="games-container" id="recommendedContainer"></div>
+    <div id="no-data-message" class="no-data">No data collected yet.</div>
+  </div>
 </div>
+
+<footer>
+  <div class="credits">© 2025 DOPA. All Rights Reserved.</div>
+  <div class="social-icons">
+    <button class="btn"
+      style="background: none; border: none; color: #800080; cursor: pointer; font-size: 1.5rem;"
+      onclick="window.open('https://www.youtube.com/d.')">🟣 YouTube</button>
+  </div>
+</footer>
+
+<script>
+// ---- SINGLE ARRAY, EASY TO ADD GAMES ----
+const games = [
+  // Most Popular
+  { id: 'a-shedletsky-pov', title: 'A Shedletsky POV', image: 'ashedletskypov.png', popular: true },
+  { id: 'block-blast', title: 'Block Blast!', image: 'blockblast.jpg', popular: true },
+  { id: 'slope', title: 'Slope', image: 'slopeicon.png', popular: true },
+  { id: 'buckshot-roulette', title: 'Buckshot Roulette', image: 'buckshot.jpeg', popular: true },
+  // All others (just add new objects here)
+  { id: 'cookieclicker', title: 'Cookie Clicker', image: 'cookie-clicker.png' },
+  { id: '2048', title: '2048', image: '2048_logo.png' },
+  { id: 'flappybird', title: 'Flappy Bird', image: 'Flappy_Bird_icon.png' },
+  { id: 'chrome-dino', title: 'Chrome Dino', image: 'Social_dino_with_hat.gif' },
+  { id: 'penguino', title: 'Penguino', image: '3002414_nescartridges_penguino.png' },
+  { id: 'backrooms', title: 'Backrooms', image: 'backroomsgificon.gif' },
+  { id: 'retro-bowl', title: 'Retro Bowl', image: 'Retro_Bowl_cover.png' },
+  { id: 'worlds-hardest-game', title: 'World\'s Hardest Game', image: 'HardestGameIcon.png' },
+  { id: 'worlds-hardest-game-2', title: 'World\'s Hardest Game 2', image: 'HardestGameIcon.png' },
+  { id: 'you-are-bezos', title: 'You Are Bezos', image: 'JeffBezosYes.png' },
+  { id: 'just-one-boss', title: 'Just One Boss', image: 'bossicon.png' },
+  { id: 'DogeMiner', title: 'Doge Miner', image: 'DogeMiningicon.png' },
+  { id: '1', title: '1', image: '1iconthing.png' },
+  { id: 'among-us', title: 'Among Us', image: 'red842.png' },
+  { id: 'sandbox', title: 'Sandbox', image: 'sandboxicon.png' },
+  { id: 'championarcher', title: 'Champion Archer', image: 'championarcher.png' },
+  { id: 'interactivebuddy', title: 'Interactive Buddy', image: 'interactivebuddy.png' },
+  { id: 'getaway-shootout', title: 'Getaway Shootout', image: 'getaway.jpg' },
+  { id: 'tunnel-rush', title: 'Tunnel Rush', image: 'tunnel.jpg' },
+  { id: 'paperio2', title: 'paper.io 2', image: 'paperioicon.jpeg' },
+  { id: 'a-dance-of-fire-and-ice', title: 'A Dance of Fire and Ice', image: 'adofai.png' },
+  { id: 'alienhominid', title: 'Alien Hominid', image: 'alienhominid.webp' },
+  { id: 'wolf3d', title: 'Wolfenstein', image: 'wolfenstein.jpeg' },
+  { id: 'hexgl', title: 'HexGL', image: 'hexgl.png' },
+  { id: 'achievementunlocked', title: 'Achievement Unlocked', image: 'achievementunlocked.png' },
+  { id: 'adrenalinechallenge', title: 'Adrenaline Challenge', image: 'adrenalinechallenge.jpeg' },
+  { id: 'basketball-stars', title: 'Basketball Stars', image: 'basketballstars.jpeg' },
+  { id: 'battleforgondor', title: 'Battle for Gondor', image: 'battleofgondor.jpeg' },
+  { id: 'bigredbutton', title: 'Big Red Button', image: 'big-red-button.jpg' },
+  { id: 'blackknight', title: 'Black Knight', image: 'blackknight.jpg' },
+  { id: 'bloonstd', title: 'Bloons Tower Defense', image: 'bloonstd.jpeg' },
+  { id: 'bloonstd2', title: 'Bloons Tower Defense 2', image: 'bloonstd.jpeg' },
+  { id: 'bloxors', title: 'Bloxors', image: 'bloxorz.jpeg' },
+  { id: 'btts', title: 'BTTS', image: 'idkistolethis.png' },
+  { id: 'cannon-basketball-4', title: 'Cannon Basketball 4', image: 'cannonbasketball4.jpeg' },
+  { id: 'cell-machine', title: 'Cell Machine', image: 'cellmachine.jpeg' },
+  { id: 'connect3', title: 'Connect 3', image: 'yeayhhhdhhd.png' },
+  { id: 'craftmine', title: 'Craft Mine', image: 'craftmine.jpeg' },
+  { id: 'creativekillchamber', title: 'Creative Kill Chamber', image: 'creative.jpeg' },
+  { id: 'csgo-clicker', title: 'CS:GO Clicker', image: 'csgoclicker.png' },
+  { id: 'ctr-holiday', title: 'CTR Holiday', image: 'cutetherope.png' },
+  { id: 'ctr-tr', title: 'CTR TR', image: 'cutetherope.png' },
+  { id: 'ctr', title: 'CTR', image: 'cutetherope.png' },
+  { id: 'cubefield', title: 'Cube Field', image: 'cubefield.jpeg' },
+  { id: 'cupcake2048', title: 'Cupcake 2048', image: 'cupcake2048.png' },
+  { id: 'deal-or-no-deal', title: 'Deal or No Deal', image: 'dealornodealsir.jpg' },
+  { id: 'death-run-3d', title: 'Death Run 3D', image: 'deathrun3d.png' },
+  { id: 'defend-the-tank', title: 'Defend the Tank', image: 'defendthetank.jpeg' },
+  { id: 'doge2048', title: 'Doge 2048', image: 'doge2048.gif' },
+  { id: 'doodle-jump', title: 'Doodle Jump', image: 'doodlejump.jpg' },
+  { id: 'doublewires', title: 'Double Wires', image: 'DoubleWires.png' },
+  { id: 'draw-the-hill', title: 'Draw the Hill', image: 'drawthehill.jpg' },
+  { id: 'ducklife1', title: 'Duck Life 1', image: 'ducklife.webp' },
+  { id: 'ducklife2', title: 'Duck Life 2', image: 'ducklife.webp' },
+  { id: 'ducklife3', title: 'Duck Life 3', image: 'ducklife.webp' },
+  { id: 'edgenotfound', title: 'Edge Not Found', image: 'EdgeNotFound.jpeg' },
+  { id: 'evil-glitch', title: 'Evil Glitch', image: 'evilglitch.jpg' },
+  { id: 'exo', title: 'Exo', image: 'Exo.jpg' },
+  { id: 'game-inside', title: 'Game Inside', image: 'gameinsideagameinsideagameinsiyeahyougetit.png' },
+  { id: 'geodash', title: 'Geo Dash', image: 'gd.png' },
+  { id: 'gimme-the-airpod', title: 'Gimme the Airpod', image: 'givemetheairpodnowww.jpeg' },
+  { id: 'glass-city', title: 'Glass City', image: 'glasscity.avif' },
+  { id: 'google-snake', title: 'Google Snake', image: 'googlesnake.jpeg' },
+  { id: 'hackertype', title: 'Hacker Type', image: 'fakefakefakefakefake.png' },
+  { id: 'helicopter', title: 'Helicopter', image: 'Helicopter.png' },
+  { id: 'idle-shark', title: 'Idle Shark', image: 'idleshark.jpeg' },
+  { id: 'impossiblequiz', title: 'The Impossible Quiz', image: 'theimpossiblequiz.png' },
+  { id: 'learntofly', title: 'Learn to Fly', image: 'learntofly.jpeg' },
+  { id: 'mario', title: 'Super Mario', image: 'mario.webp' },
+  { id: 'motox3m-pool', title: 'Moto X3M Pool', image: 'motothing.jpeg' },
+  { id: 'motox3m-spooky', title: 'Moto X3M Spooky', image: 'motothing.jpeg' },
+  { id: 'motox3m-winter', title: 'Moto X3M Winter', image: 'motothing.jpeg' },
+  { id: 'papaspizzaria', title: 'Papa’s Pizzeria', image: 'pizzapizza.webp' },
+  { id: 'portalflash', title: 'Portal Flash', image: 'flashversionbooo.jpeg' },
+  { id: 'precision-client', title: 'Precision Client', image: 'precisionclient.png' },
+  { id: 'push-the-square', title: 'Push The Square', image: 'pushthesquare.png' },
+  { id: 'push-your-luck', title: 'Push Your Luck', image: 'pushyourluck.png' },
+  { id: 'rooftop-snipers', title: 'Rooftop Snipers', image: 'rooftop.avif' },
+  { id: 'sm64', title: 'Super Mario 64', image: 'super_mario_64_2.webp' },
+  { id: 'smashkarts', title: 'Smash Karts', image: 'smashkarts.jpeg' },
+  { id: 'smokingbarrels', title: 'Smoking Barrels', image: 'smokinbarrelsgame.jpeg' },
+  { id: 'snowbattle', title: 'Snow Battle', image: 'snowbattle.jpeg' },
+  { id: 'soundboard', title: 'Soundboard', image: '3kh0.png' },
+  { id: 'stealingthediamond', title: 'Stealing the Diamond', image: 'stealingthediamond.avif' },
+  { id: 'stickwar', title: 'Stick War', image: 'stickwar.jpeg' },
+  { id: 'superhot', title: 'Superhot', image: 'superhot.jpeg' },
+  { id: 'tanuki-sunset', title: 'Tanuki Sunset', image: 'TanukiSunset.jpeg' },
+  { id: 'temple-run-2', title: 'Temple Run 2', image: 'templeruntwo.avif' },
+  { id: 'theheist', title: 'The Heist', image: 'HEIST.jpg' },
+  { id: 'there-is-no-game', title: 'There is No Game', image: 'thereisnogame.webp' },
+  { id: 'vex3', title: 'Vex 3', image: 'vex7.webp' },
+  { id: 'vex4', title: 'Vex 4', image: 'vex7.webp' },
+  { id: 'vex5', title: 'Vex 5', image: 'vex7.webp' },
+  { id: 'vex6', title: 'Vex 6', image: 'vex7.webp' },
+  { id: 'webretro-local', title: 'WebRetro Local', image: '3kh0.png' },
+  { id: 'wordle', title: 'Wordle', image: 'wordle.webp' },
+  { id: 'tomb-of-the-mask', title: 'Tomb of the Mask', image: 'tombofthemask.png'},
+  { id: 'five-nights-at-freddys', title: 'FNAF', image: 'fnaf.png'},
+  { id: 'five-nights-at-freddys-2', title: 'FNAF 2', image: 'fnaf2.webp'},
+  { id: 'five-nights-at-freddys-3', title: 'FNAF 3', image: 'fnaf3.webp'},
+  { id: 'five-nights-at-freddys-4', title: 'FNAF 4', image: 'fnaf4.jpg'},
+  { id: 'ucn', title: 'UCN', image: 'ucn.jpeg'},
+  { id: 'ps', title: 'FNAF 6', image: 'fnaf6.png'},
+  { id: 'five-nights-at-candys', title: 'FNAC', image: 'fnac.png'},
+  { id: '10-minutes-till-dawn', title: '10 Minutes Till Dawn', image: '10minutestilldawn.png'},
+  { id: 'bitlife', title: 'BitLife', image: 'bitlife.webp'},
+  { id: 'boxing-random', title: 'Boxing Random', image: 'boxingrandom.png'},
+  { id: 'osu', title: 'Osu Mania V3', image: 'Osu!_logo_2024.png'},
+];
+
+// Recent games logic
+let recentGames = JSON.parse(localStorage.getItem('recentGames')) || [];
+
+function playGame(gameId) {
+  if (!recentGames.includes(gameId)) {
+    if (recentGames.length >= 4) { recentGames.pop(); }
+    recentGames.unshift(gameId);
+    localStorage.setItem('recentGames', JSON.stringify(recentGames));
+  }
+  window.location.href = `/${gameId}`;
+}
+
+// Render games helper
+function renderGames(containerId, gamesList) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  gamesList.forEach(game => {
+    const gameElement = document.createElement('div');
+    gameElement.className = 'game';
+    gameElement.onclick = () => playGame(game.id);
+    gameElement.innerHTML = `
+      <img src="${game.image}" alt="${game.title}">
+      <div class="game-title">${game.title}</div>
+    `;
+    container.appendChild(gameElement);
+  });
+}
+
+// Search filter & render all games
+function renderAllGames() {
+  const searchInput = document.getElementById('search').value.toLowerCase();
+  let filteredGames = games.filter(game => game.title.toLowerCase().includes(searchInput));
+  renderGames('all-games-container', filteredGames);
+}
+
+// Most popular games
+function renderPopularGames() {
+  const popularGames = games.filter(game => game.popular);
+  renderGames('popular-games-container', popularGames);
+}
+
+// Recommended games
+function recommendGames() {
+  const recommendedContainer = document.getElementById('recommendedContainer');
+  const noDataMessage = document.getElementById('no-data-message');
+  recommendedContainer.innerHTML = '';
+  noDataMessage.style.display = 'none';
+  if (recentGames.length === 0) {
+    noDataMessage.style.display = 'block';
+    return;
+  }
+  const recommended = games.filter(game => recentGames.includes(game.id)).slice(0, 4);
+  if (recommended.length === 0) {
+    noDataMessage.style.display = 'block';
+  } else {
+    renderGames('recommendedContainer', recommended);
+  }
+}
+
+// Initial render
+document.addEventListener("DOMContentLoaded", function() {
+  renderPopularGames();
+  renderAllGames();
+  recommendGames();
+});
+</script>
 </body>
 </html>
